@@ -11,7 +11,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.FastColor;
+import net.minecraft.world.item.DyeableLeatherItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.CustomData;
 
@@ -22,7 +22,7 @@ import static com.magistuarmory.item.ArmorDecorationItem.getDecorationTags;
 
 public class KnightItem extends MedievalArmorItem implements ISurcoat, DyeableItemLike, IHasModelProperty
 {
-	public KnightItem(ArmorType material, Type type, Properties properties) {
+	public KnightItem(ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Properties properties) {
 		super(material, type, properties);
 	}
 
@@ -30,7 +30,8 @@ public class KnightItem extends MedievalArmorItem implements ISurcoat, DyeableIt
     public int getColor(ItemStack itemstack)
     {
 	    ArmorDecorationItem.DecorationInfo info = getPlumeDecorationInfo(itemstack);
-		return FastColor.ARGB32.opaque(info != null ? info.color() : 0);
+		// Use bitwise AND with 0xFFFFFF to remove alpha and create opaque color
+		return info != null ? info.color() & 0xFFFFFF : 0;
     }
 
 	public boolean hasPlume(ItemStack itemstack)

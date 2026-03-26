@@ -18,7 +18,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
+
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -80,7 +80,7 @@ public class LanceItem extends MedievalWeaponItem
 	}
 
 	@Override
-	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand)
+	public InteractionResult use(Level level, Player player, InteractionHand hand)
 	{
 		this.setRaised(player, !this.isRaised(player));
 		return super.use(level, player, hand);
@@ -200,9 +200,9 @@ public class LanceItem extends MedievalWeaponItem
 	}
 
 	@Override
-	public UseAnim getUseAnimation(ItemStack stack)
+	public ItemUseAnimation getUseAnimation(ItemStack stack)
 	{
-		return UseAnim.BOW;
+		return ItemUseAnimation.BOW;
 	}
 
 	@Override

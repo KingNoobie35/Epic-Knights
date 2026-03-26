@@ -3,7 +3,7 @@ package com.magistuarmory.item;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.FastColor;
+import net.minecraft.world.item.DyeableLeatherItem;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.DyedItemColor;
@@ -21,7 +21,7 @@ public class DyeableArmorDecorationItem extends ArmorDecorationItem implements D
 	public DyeableArmorDecorationItem(ResourceLocation location, Properties properties, net.minecraft.world.item.equipment.ArmorType armorType, int defaultcolor)
 	{
 		super(location, properties, armorType);
-		this.defaultcolor = FastColor.ARGB32.opaque(defaultcolor);
+		this.defaultcolor = defaultcolor & 0xFFFFFF;  // Ensure opaque by removing alpha
 	}
 
 	public void setColor(ItemStack stack, int color)
@@ -33,7 +33,8 @@ public class DyeableArmorDecorationItem extends ArmorDecorationItem implements D
 	public int getColor(ItemStack stack)
 	{
 		DyedItemColor color = stack.get(DataComponents.DYED_COLOR);
-		return FastColor.ARGB32.opaque(color != null ? color.rgb() : defaultcolor);
+		// Use bitwise AND with 0xFFFFFF to ensure opaque color
+		return (color != null ? color.rgb() : defaultcolor) & 0xFFFFFF;
 	}
 
 	@Override

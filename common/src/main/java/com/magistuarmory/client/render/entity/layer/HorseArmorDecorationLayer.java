@@ -13,6 +13,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
+import net.minecraft.client.renderer.entity.state.HorseRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
@@ -28,16 +29,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Environment(EnvType.CLIENT)
-public class HorseArmorDecorationLayer extends RenderLayer<Horse, HorseModel<Horse>> implements ArmorPatternLayer
+public class HorseArmorDecorationLayer extends RenderLayer<HorseRenderState, HorseModel> implements ArmorPatternLayer
 {
    private static final String BASE_DIR = "textures/entity/horse/armor/";
-   private final HorseArmorDecorationModel<Horse> model;
+   private final HorseArmorDecorationModel model;
    private final ResourceLocation baseTexture;
    private final ResourceLocation basePatternTexture;
    private final String name;
    private final String dirprefix;
 
-   public HorseArmorDecorationLayer(RenderLayerParent<Horse, HorseModel<Horse>> parent, EntityRendererProvider.Context context, ResourceLocation texture, String name)
+   public HorseArmorDecorationLayer(RenderLayerParent<HorseRenderState, HorseModel> parent, EntityRendererProvider.Context context, ResourceLocation texture, String name)
    {
       super(parent);
       this.name = name;
@@ -47,16 +48,14 @@ public class HorseArmorDecorationLayer extends RenderLayer<Horse, HorseModel<Hor
       this.basePatternTexture = ResourceLocation.fromNamespaceAndPath(EpicKnights.ID, dirprefix + "base.png");
    }
 
-   public void render(PoseStack pose, MultiBufferSource buffer, int p, Horse entity, float f, float f2, float f3, float f4, float f5, float f6)
+   public void render(com.mojang.blaze3d.vertex.PoseStack pose, MultiBufferSource buffer, int p, HorseRenderState entity, float f, float f2)
    {
-      ItemStack stack = entity.getItemBySlot(EquipmentSlot.BODY);
+      ItemStack stack = entity.bodyArmorItem;
       BannerPatternLayers patterns = stack.get(DataComponents.BANNER_PATTERNS);
       if (stack.getItem() instanceof AnimalArmorItem && patterns != null)
       {
          DyeColor basecolor = stack.get(DataComponents.BASE_COLOR);
          this.getParentModel().copyPropertiesTo(this.model);
-         this.model.prepareMobModel(entity, f, f2, f3);
-         this.model.setupAnim(entity, f, f2, f4, f5, f6);
          List<Pair<Holder<BannerPattern>, DyeColor>> list = patterns.layers().stream().map(l -> Pair.of(l.pattern(), l.color())).collect(Collectors.toList());
          this.renderPatterns(pose, buffer, p, OverlayTexture.NO_OVERLAY, list, false, this.model.parts(), basecolor);
       }

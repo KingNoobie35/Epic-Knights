@@ -5,24 +5,25 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
-public class ModItemTier implements Tier
+/**
+ * Wrapper class around ToolMaterial for custom weapon materials.
+ * Since ToolMaterial is a Record (final) in 1.21.4, we cannot extend it.
+ * Instead, we wrap it and provide convenience accessors.
+ */
+public class ModItemTier
 {
 	private final String name;
-	private final float attackDamageBonus;
-	private final int enchantmentValue;
-	private final Supplier<Ingredient> repairIngredient;
-	private final float speed;
-	private final int uses;
+	private final ToolMaterial toolMaterial;
 	private final float density;
 
-	// Static references - initialized with vanilla tier values
+	// Static references - initialized with vanilla tier values and custom materials
 	public static ModItemTier WOOD = new ModItemTier("wood", BlockTags.INCORRECT_FOR_WOODEN_TOOL, 59, 2.0F, 0.0F, 15, "minecraft:planks", 0);
 	public static ModItemTier STONE = new ModItemTier("stone", BlockTags.INCORRECT_FOR_STONE_TOOL, 131, 4.0F, 1.0F, 5, "minecraft:cobblestone", 1);
 	public static ModItemTier IRON = new ModItemTier("iron", BlockTags.INCORRECT_FOR_IRON_TOOL, 250, 6.0F, 2.0F, 14, "minecraft:iron_ingot", 2);
@@ -35,67 +36,48 @@ public class ModItemTier implements Tier
 	public static ModItemTier STEEL = new ModItemTier("steel", BlockTags.INCORRECT_FOR_IRON_TOOL, 400, 6.0F, 2.5F, 14, "c:ingots/steel", 2);
 	public static ModItemTier TIN = new ModItemTier("tin", BlockTags.INCORRECT_FOR_STONE_TOOL, 130, 6.0F, 0.0F, 20, "c:ingots/tin", 2);
 	public static ModItemTier BRONZE = new ModItemTier("bronze", BlockTags.INCORRECT_FOR_IRON_TOOL, 200, 6.0F, 2.0F, 15, "c:ingots/bronze", 2);
-	private final TagKey<Block> incorrectBlocks;
-
-	public ModItemTier(String name, Tier tier, float density)
-	{
-		this.name = name;
-		this.incorrectBlocks = tier.getIncorrectBlocksForDrops();
-		this.uses = tier.getUses();
-		this.speed = tier.getSpeed();
-		this.attackDamageBonus = tier.getAttackDamageBonus();
-		this.enchantmentValue = tier.getEnchantmentValue();
-		this.repairIngredient = tier::getRepairIngredient;
-		this.density = density;
-	}
 
 	public ModItemTier(String name, TagKey<Block> incorrectBlocks, int uses, float speed, float attack, int enchantment, String repairitemtag, float density)
 	{
 		this.name = name;
-		this.incorrectBlocks = incorrectBlocks;
-		this.uses = uses;
-		this.speed = speed;
-		this.attackDamageBonus = attack;
-		this.enchantmentValue = enchantment;
-		TagKey<net.minecraft.world.item.Item> itemTag = TagKey.create(Registries.ITEM, ResourceLocation.parse(repairitemtag));
-		this.repairIngredient = () -> Ingredient.of(itemTag);
 		this.density = density;
+		TagKey<net.minecraft.world.item.Item> itemTag = TagKey.create(Registries.ITEM, ResourceLocation.parse(repairitemtag));
+		this.toolMaterial = new ToolMaterial(incorrectBlocks, uses, speed, attack, enchantment, itemTag);
 	}
 
-	@Override
+	public ToolMaterial getToolMaterial()
+	{
+		return toolMaterial;
+	}
+
 	public float getAttackDamageBonus()
 	{
-		return attackDamageBonus;
+		return toolMaterial.attackDamageBonus();
 	}
 
-	@Override
 	public @NotNull TagKey<Block> getIncorrectBlocksForDrops()
 	{
-		return this.incorrectBlocks;
+		return toolMaterial.incorrectBlocksForDrops();
 	}
 
-	@Override
 	public int getEnchantmentValue()
 	{
-		return enchantmentValue;
+		return toolMaterial.enchantmentValue();
 	}
 
-	@Override
 	public Ingredient getRepairIngredient()
 	{
-		return repairIngredient.get();
+		return Ingredient.of(toolMaterial.repairItems());
 	}
 
-	@Override
 	public float getSpeed()
 	{
-		return speed;
+		return toolMaterial.speed();
 	}
 
-	@Override
 	public int getUses()
 	{
-		return uses;
+		return toolMaterial.durability();
 	}
 
 	public String getMaterialName()

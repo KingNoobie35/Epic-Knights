@@ -6,7 +6,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
-import net.minecraft.util.FastColor;
+import net.minecraft.world.item.DyeableLeatherItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.DyedItemColor;
@@ -21,7 +21,7 @@ public class DyeableMedievalArmorItem extends MedievalArmorItem implements Dyeab
 	public DyeableMedievalArmorItem(com.magistuarmory.item.armor.ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Properties properties, int defaultcolor)
     {
         super(material, type, properties);
-        this.defaultcolor = FastColor.ARGB32.opaque(defaultcolor);
+        this.defaultcolor = defaultcolor & 0xFFFFFF;  // Ensure opaque by removing alpha
     }
 
     public int getDefaultColor() {
@@ -32,7 +32,8 @@ public class DyeableMedievalArmorItem extends MedievalArmorItem implements Dyeab
     public int getColor(ItemStack stack)
     {
         DyedItemColor color = stack.get(DataComponents.DYED_COLOR);
-        return FastColor.ARGB32.opaque(color != null ? color.rgb() : getDefaultColor());
+        // Use bitwise AND with 0xFFFFFF to ensure opaque color
+        return (color != null ? color.rgb() : getDefaultColor()) & 0xFFFFFF;
     }
 
     @Override

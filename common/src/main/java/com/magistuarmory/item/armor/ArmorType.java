@@ -122,7 +122,7 @@ public final class ArmorType
 		return this.material.value().repairIngredient();
 	}
 	
-	public List<ArmorMaterial.Layer> getLayers() {
+	public List<net.minecraft.world.item.equipment.ArmorMaterial.Layer> getLayers() {
 		return this.material.value().layers();
 	}
 	

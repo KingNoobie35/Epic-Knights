@@ -4,10 +4,10 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.model.HorseModel;
 import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.world.entity.animal.horse.AbstractHorse;
+import net.minecraft.client.renderer.entity.state.HorseRenderState;
 
 @Environment(EnvType.CLIENT)
-public class HorseArmorDecorationModel<T extends AbstractHorse> extends HorseModel<T>
+public class HorseArmorDecorationModel extends HorseModel
 {
     ModelPart[] parts;
     

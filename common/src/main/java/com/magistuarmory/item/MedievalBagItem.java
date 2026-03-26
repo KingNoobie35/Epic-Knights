@@ -6,7 +6,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
+
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -26,10 +26,10 @@ public class MedievalBagItem extends Item
 	}
 	
 	@Override
-	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand)
+	public InteractionResult use(Level level, Player player, InteractionHand hand)
 	{
-		InteractionResultHolder<ItemStack> result = super.use(level, player, hand);
-		if (level.isClientSide() || result.getResult().consumesAction())
+		InteractionResult result = super.use(level, player, hand);
+		if (level.isClientSide() || result.consumesAction())
 			return result;
 		
 		ItemStack bagstack = player.getItemInHand(hand);
@@ -40,7 +40,7 @@ public class MedievalBagItem extends Item
 				level.addFreshEntity(new ItemEntity(level, player.getX(), player.getY(), player.getZ(), s));
 		});
 		
-		return new InteractionResultHolder<>(InteractionResult.SUCCESS, bagstack);
+		return InteractionResult.SUCCESS;
 	}
 	
 	@Override

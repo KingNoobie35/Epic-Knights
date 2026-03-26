@@ -15,8 +15,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.ItemUseAnimation;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
@@ -49,8 +49,8 @@ public class MedievalWeaponItem extends SwordItem implements IHasModelProperty
 
 	public MedievalWeaponItem(Properties properties, ModItemTier material, WeaponType type)
 	{
-		// SwordItem in 1.21.4 takes: Tier material, float attackDamage, float attackSpeed, Properties
-		super(material, CombatHelper.getBaseAttackDamage(material, type), CombatHelper.getBaseAttackSpeed(material, type), properties.stacksTo(1).durability(type.getDurability(material)).attributes(createDefaultAttributeModifiersBuilder(material, type).build()));
+		// SwordItem in 1.21.4 takes: ToolMaterial material, float attackDamage, float attackSpeed, Properties
+		super(material.getToolMaterial(), CombatHelper.getBaseAttackDamage(material, type), CombatHelper.getBaseAttackSpeed(material, type), properties.stacksTo(1).durability(type.getDurability(material)).attributes(createDefaultAttributeModifiersBuilder(material, type).build()));
 		this.type = type;
 		this.attackDamage = CombatHelper.getBaseAttackDamage(material, type);
 
@@ -223,14 +223,14 @@ public class MedievalWeaponItem extends SwordItem implements IHasModelProperty
 	}
 
 	@Override
-	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand)
+	public InteractionResult use(Level level, Player player, InteractionHand hand)
 	{
 		if (canBlock(player) && blockingPriority)
 		{
 			ItemStack stack = player.getItemInHand(hand);
 			player.startUsingItem(hand);
 
-			return InteractionResultHolder.consume(stack);
+			return InteractionResult.CONSUME;
 		}
 
 		return super.use(level, player, hand);
@@ -243,9 +243,9 @@ public class MedievalWeaponItem extends SwordItem implements IHasModelProperty
 	}
 
 	@Override
-	public UseAnim getUseAnimation(ItemStack stack)
+	public ItemUseAnimation getUseAnimation(ItemStack stack)
 	{
-		return (canBlock() && blockingPriority) ? UseAnim.BLOCK : super.getUseAnimation(stack);
+		return (canBlock() && blockingPriority) ? ItemUseAnimation.BLOCK : super.getUseAnimation(stack);
 	}
 
 	public void onBlocked(ItemStack stack, float damage, LivingEntity victim, DamageSource source)

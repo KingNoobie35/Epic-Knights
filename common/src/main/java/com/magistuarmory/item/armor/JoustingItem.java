@@ -14,7 +14,7 @@ import java.util.List;
 
 public class JoustingItem extends DyeableMedievalArmorItem implements ISurcoat
 {
-	public JoustingItem(ArmorType material, Type type, Properties properties)
+	public JoustingItem(ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Properties properties)
 	{
 		super(material, type, properties, 0xF5F5F5);
 	}
@@ -22,7 +22,7 @@ public class JoustingItem extends DyeableMedievalArmorItem implements ISurcoat
 	@Override
 	public int getColor(ItemStack stack)
 	{
-		return this.getType() == Type.HELMET ? super.getColor(stack) : getDefaultColor();
+		return this.getType() == net.minecraft.world.item.equipment.ArmorType.HELMET ? super.getColor(stack) : getDefaultColor();
 	}
 	
 	@Override
