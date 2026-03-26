@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Supplier;

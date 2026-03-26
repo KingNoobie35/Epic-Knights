@@ -15,37 +15,37 @@ import java.util.function.Supplier;
 public class ItemRegistryHelper
 {
 	@ExpectPlatform
-	public static RegistrySupplier<KnightItem> registerKnightItem(DeferredRegister<Item> items, String id, ArmorType material, ArmorItem.Type type, Item.Properties properties)
+	public static RegistrySupplier<KnightItem> registerKnightItem(DeferredRegister<Item> items, String id, ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Item.Properties properties)
 	{
 		throw new AssertionError();
 	}
 
 	@ExpectPlatform
-	public static RegistrySupplier<MedievalArmorItem> registerJoustingItem(DeferredRegister<Item> items, String id, ArmorType material, ArmorItem.Type type, Item.Properties properties)
+	public static RegistrySupplier<MedievalArmorItem> registerJoustingItem(DeferredRegister<Item> items, String id, ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Item.Properties properties)
 	{
 		throw new AssertionError();
 	}
 
 	@ExpectPlatform
-	public static RegistrySupplier<DyeableMedievalArmorItem> registerDyeableMedievalArmorItem(DeferredRegister<Item> items, String id, ArmorType material, ArmorItem.Type type, Item.Properties properties, int defaultcolor)
+	public static RegistrySupplier<DyeableMedievalArmorItem> registerDyeableMedievalArmorItem(DeferredRegister<Item> items, String id, ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Item.Properties properties, int defaultcolor)
 	{
 		throw new AssertionError();
 	}
 
 	@ExpectPlatform
-	public static RegistrySupplier<MedievalArmorItem> registerMedievalArmorItem(DeferredRegister<Item> items, String id, ArmorType material, ArmorItem.Type type, Item.Properties properties)
+	public static RegistrySupplier<MedievalArmorItem> registerMedievalArmorItem(DeferredRegister<Item> items, String id, ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Item.Properties properties)
 	{
 		throw new AssertionError();
 	}
 
 	@ExpectPlatform
-	public static RegistrySupplier<WearableArmorDecorationItem> registerWearableArmorDecorationItem(DeferredRegister<Item> items, String id, ArmorType material, ArmorItem.Type type, Item.Properties properties)
+	public static RegistrySupplier<WearableArmorDecorationItem> registerWearableArmorDecorationItem(DeferredRegister<Item> items, String id, ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Item.Properties properties)
 	{
 		throw new AssertionError();
 	}
 
 	@ExpectPlatform
-	public static RegistrySupplier<DyeableWearableArmorDecorationItem> registerDyeableWearableArmorDecorationItem(DeferredRegister<Item> items, String id, ArmorType material, ArmorItem.Type type, Item.Properties properties, int defaultcolor)
+	public static RegistrySupplier<DyeableWearableArmorDecorationItem> registerDyeableWearableArmorDecorationItem(DeferredRegister<Item> items, String id, ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Item.Properties properties, int defaultcolor)
 	{
 		throw new AssertionError();
 	}

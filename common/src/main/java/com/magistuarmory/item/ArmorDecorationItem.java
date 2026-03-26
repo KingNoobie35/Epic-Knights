@@ -25,9 +25,9 @@ import java.util.List;
 public class ArmorDecorationItem extends Item implements ArmorDecoration
 {
 	ResourceLocation location;
-	ArmorItem.Type armorType;
+	net.minecraft.world.item.equipment.ArmorType armorType;
 
-	public ArmorDecorationItem(ResourceLocation location, Properties properties, ArmorItem.Type armorType)
+	public ArmorDecorationItem(ResourceLocation location, Properties properties, net.minecraft.world.item.equipment.ArmorType armorType)
 	{
 		super(properties.stacksTo(1));
 		this.location = location;
@@ -41,7 +41,7 @@ public class ArmorDecorationItem extends Item implements ArmorDecoration
 	}
 
 	@Override
-	public ArmorItem.Type getType()
+	public net.minecraft.world.item.equipment.ArmorType getType()
 	{
 		return this.armorType;
 	}

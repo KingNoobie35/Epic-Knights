@@ -20,7 +20,7 @@ public interface ArmorDecoration extends ItemLike
 	
 	CompoundTag getCompoundTag(ItemStack stack);
 	
-	ArmorItem.Type getType();
+	net.minecraft.world.item.equipment.ArmorType getType();
 	
 	boolean isApplicableForDecoration(ItemStack stack);
 

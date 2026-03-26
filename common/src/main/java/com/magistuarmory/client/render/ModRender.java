@@ -101,7 +101,7 @@ public class ModRender
 		HumanoidModel<LivingEntity> model = location.map(
 				l -> ARMOR_MODELS_CACHE.computeIfAbsent(l.getModel(),
 						k -> new HumanoidModel<>(context.bakeLayer(l)))).orElseGet(
-				() -> armor.getType() == ArmorItem.Type.LEGGINGS ? ModRender.INNER_ARMOR : ModRender.OUTER_ARMOR);
+				() -> armor.getType() == net.minecraft.world.item.equipment.ArmorType.LEGGINGS ? ModRender.INNER_ARMOR : ModRender.OUTER_ARMOR);
 		armor.setModel(model);
 	}
 

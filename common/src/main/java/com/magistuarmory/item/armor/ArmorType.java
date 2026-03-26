@@ -12,7 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
 
@@ -27,7 +27,7 @@ public final class ArmorType
 	private final Holder<ArmorMaterial> material;
 	private final ResourceLocation location;
 	private final ResourceLocation modellocation;
-	private final EnumMap<ArmorItem.Type, Integer> durability;
+	private final EnumMap<net.minecraft.world.item.equipment.ArmorType, Integer> durability;
 	private final boolean enabled;
 
 	public ArmorType(ResourceLocation location, ResourceLocation modellocation, Holder<ArmorMaterial> material, Integer[] durability, boolean enabled)
@@ -35,12 +35,12 @@ public final class ArmorType
 		this.material = material;
 		this.location = location;
 		this.modellocation = modellocation;
-		this.durability = Util.make(new EnumMap<>(ArmorItem.Type.class), (enumMap) -> {
-			enumMap.put(ArmorItem.Type.BOOTS, durability[0]);
-			enumMap.put(ArmorItem.Type.LEGGINGS, durability[1]);
-			enumMap.put(ArmorItem.Type.CHESTPLATE, durability[2]);
-			enumMap.put(ArmorItem.Type.HELMET, durability[3]);
-			enumMap.put(ArmorItem.Type.BODY, durability[2]);
+		this.durability = Util.make(new EnumMap<>(net.minecraft.world.item.equipment.ArmorType.class), (enumMap) -> {
+			enumMap.put(net.minecraft.world.item.equipment.ArmorType.BOOTS, durability[0]);
+			enumMap.put(net.minecraft.world.item.equipment.ArmorType.LEGGINGS, durability[1]);
+			enumMap.put(net.minecraft.world.item.equipment.ArmorType.CHESTPLATE, durability[2]);
+			enumMap.put(net.minecraft.world.item.equipment.ArmorType.HELMET, durability[3]);
+			enumMap.put(net.minecraft.world.item.equipment.ArmorType.BODY, durability[2]);
 		});
 		this.enabled = enabled;
 	}
@@ -52,12 +52,12 @@ public final class ArmorType
 				List.of(new ArmorMaterial.Layer(location, "", false));
 
 		this.material = armorMaterial.register(location, () -> new ArmorMaterial(
-				Util.make(new EnumMap<>(ArmorItem.Type.class), (enumMap) -> {
-					enumMap.put(ArmorItem.Type.BOOTS, defenseForSlot[0]);
-					enumMap.put(ArmorItem.Type.LEGGINGS, defenseForSlot[1]);
-					enumMap.put(ArmorItem.Type.CHESTPLATE, defenseForSlot[2]);
-					enumMap.put(ArmorItem.Type.BODY, defenseForSlot[2]);
-					enumMap.put(ArmorItem.Type.HELMET, defenseForSlot[3]);
+				Util.make(new EnumMap<>(net.minecraft.world.item.equipment.ArmorType.class), (enumMap) -> {
+					enumMap.put(net.minecraft.world.item.equipment.ArmorType.BOOTS, defenseForSlot[0]);
+					enumMap.put(net.minecraft.world.item.equipment.ArmorType.LEGGINGS, defenseForSlot[1]);
+					enumMap.put(net.minecraft.world.item.equipment.ArmorType.CHESTPLATE, defenseForSlot[2]);
+					enumMap.put(net.minecraft.world.item.equipment.ArmorType.BODY, defenseForSlot[2]);
+					enumMap.put(net.minecraft.world.item.equipment.ArmorType.HELMET, defenseForSlot[3]);
 				}),
 				enchantmentValue,
 				equipSound,
@@ -68,12 +68,12 @@ public final class ArmorType
 		));
 		this.location = location;
 		this.modellocation = modellocation;
-		this.durability = Util.make(new EnumMap<>(ArmorItem.Type.class), (enumMap) -> {
-			enumMap.put(ArmorItem.Type.BOOTS, durability[0]);
-			enumMap.put(ArmorItem.Type.LEGGINGS, durability[1]);
-			enumMap.put(ArmorItem.Type.CHESTPLATE, durability[2]);
-			enumMap.put(ArmorItem.Type.BODY, durability[2]);
-			enumMap.put(ArmorItem.Type.HELMET, durability[3]);
+		this.durability = Util.make(new EnumMap<>(net.minecraft.world.item.equipment.ArmorType.class), (enumMap) -> {
+			enumMap.put(net.minecraft.world.item.equipment.ArmorType.BOOTS, durability[0]);
+			enumMap.put(net.minecraft.world.item.equipment.ArmorType.LEGGINGS, durability[1]);
+			enumMap.put(net.minecraft.world.item.equipment.ArmorType.CHESTPLATE, durability[2]);
+			enumMap.put(net.minecraft.world.item.equipment.ArmorType.BODY, durability[2]);
+			enumMap.put(net.minecraft.world.item.equipment.ArmorType.HELMET, durability[3]);
 		});
 		this.enabled = enabled;
 	}

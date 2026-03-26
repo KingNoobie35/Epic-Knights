@@ -51,7 +51,7 @@ public abstract class ModItemsProvider
 		return new ShieldsSupply(workshop, shieldName);
 	}
 
-	public @Nullable RegistrySupplier<KnightItem> addKnightItem(String id, ArmorType type, ArmorItem.Type slot, Item.Properties properties)
+	public @Nullable RegistrySupplier<KnightItem> addKnightItem(String id, ArmorType type, net.minecraft.world.item.equipment.ArmorType slot, Item.Properties properties)
 	{
 		if (type.isDisabled())
 			return null;
@@ -61,19 +61,19 @@ public abstract class ModItemsProvider
 		return armor;
 	}
 
-	public @Nullable RegistrySupplier<MedievalArmorItem> addJoustingItem(String id, ArmorType type, ArmorItem.Type slot, Item.Properties properties)
+	public @Nullable RegistrySupplier<MedievalArmorItem> addJoustingItem(String id, ArmorType type, net.minecraft.world.item.equipment.ArmorType slot, Item.Properties properties)
 	{
 		if (type.isDisabled())
 			return null;
 		RegistrySupplier<MedievalArmorItem> armor = ItemRegistryHelper.registerJoustingItem(this.items, id, type, slot, properties);
 		this.armorItems.add(armor);
-		if (slot == ArmorItem.Type.HELMET) {
+		if (slot == net.minecraft.world.item.equipment.ArmorType.HELMET) {
 			this.dyeableItems.add(armor);
 		}
 		return armor;
 	}
 
-	public @Nullable RegistrySupplier<MedievalArmorItem> addMedievalArmorItem(String id, ArmorType type, ArmorItem.Type slot, Item.Properties properties)
+	public @Nullable RegistrySupplier<MedievalArmorItem> addMedievalArmorItem(String id, ArmorType type, net.minecraft.world.item.equipment.ArmorType slot, Item.Properties properties)
 	{
 		if (type.isDisabled())
 			return null;
@@ -82,7 +82,7 @@ public abstract class ModItemsProvider
 		return armor;
 	}
 
-	public @Nullable RegistrySupplier<DyeableMedievalArmorItem> addDyeableMedievalArmorItem(String id, ArmorType type, ArmorItem.Type slot, Item.Properties properties, int defaultcolor)
+	public @Nullable RegistrySupplier<DyeableMedievalArmorItem> addDyeableMedievalArmorItem(String id, ArmorType type, net.minecraft.world.item.equipment.ArmorType slot, Item.Properties properties, int defaultcolor)
 	{
 		if (type.isDisabled())
 			return null;
@@ -132,7 +132,7 @@ public abstract class ModItemsProvider
 		return registrysupplier;
 	}
 
-	public RegistrySupplier<WearableArmorDecorationItem> addWearableArmorDecorationItem(String id, ArmorType material, ArmorItem.Type type, Item.Properties properties)
+	public RegistrySupplier<WearableArmorDecorationItem> addWearableArmorDecorationItem(String id, ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Item.Properties properties)
 	{
 		RegistrySupplier<WearableArmorDecorationItem> registrysupplier = ItemRegistryHelper.registerWearableArmorDecorationItem(this.items, id, material, type, properties);
 		this.armorDecorationItems.add(registrysupplier);
@@ -140,7 +140,7 @@ public abstract class ModItemsProvider
 		return registrysupplier;
 	}
 
-	public RegistrySupplier<DyeableWearableArmorDecorationItem> addDyeableWearableArmorDecorationItem(String id, ArmorType material, ArmorItem.Type type, Item.Properties properties, int defaultcolor)
+	public RegistrySupplier<DyeableWearableArmorDecorationItem> addDyeableWearableArmorDecorationItem(String id, ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Item.Properties properties, int defaultcolor)
 	{
 		RegistrySupplier<DyeableWearableArmorDecorationItem> registrysupplier = ItemRegistryHelper.registerDyeableWearableArmorDecorationItem(this.items, id, material, type, properties, defaultcolor);
 		this.armorDecorationItems.add(registrysupplier);

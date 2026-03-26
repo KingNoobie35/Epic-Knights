@@ -9,7 +9,7 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 

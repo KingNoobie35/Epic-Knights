@@ -3,7 +3,7 @@ package com.magistuarmory.item.armor;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.AnimalArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.Item;
 
 public class MedievalHorseArmorItem extends AnimalArmorItem

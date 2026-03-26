@@ -4,7 +4,7 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.ConfigData;
 import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorMaterial;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -119,10 +119,10 @@ public class ArmorConfig implements ConfigData
                     material.knockbackResistance(),
                     durability,
                     new Integer[]{
-                            material.getDefense(ArmorItem.Type.BOOTS),
-                            material.getDefense(ArmorItem.Type.LEGGINGS),
-                            material.getDefense(ArmorItem.Type.CHESTPLATE),
-                            material.getDefense(ArmorItem.Type.HELMET)
+                            material.getDefense(net.minecraft.world.item.equipment.ArmorType.BOOTS),
+                            material.getDefense(net.minecraft.world.item.equipment.ArmorType.LEGGINGS),
+                            material.getDefense(net.minecraft.world.item.equipment.ArmorType.CHESTPLATE),
+                            material.getDefense(net.minecraft.world.item.equipment.ArmorType.HELMET)
                     },
                     material.enchantmentValue(),
                     enabled

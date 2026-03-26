@@ -12,13 +12,13 @@ public class DyeableArmorDecorationItem extends ArmorDecorationItem implements D
 {
 	int defaultcolor;
 
-	public DyeableArmorDecorationItem(ResourceLocation location, Properties properties, ArmorItem.Type armorType)
+	public DyeableArmorDecorationItem(ResourceLocation location, Properties properties, net.minecraft.world.item.equipment.ArmorType armorType)
 	{
 		this(location, properties, armorType, 0xFFFFFFFF);
 		this.armorType = armorType;
 	}
 
-	public DyeableArmorDecorationItem(ResourceLocation location, Properties properties, ArmorItem.Type armorType, int defaultcolor)
+	public DyeableArmorDecorationItem(ResourceLocation location, Properties properties, net.minecraft.world.item.equipment.ArmorType armorType, int defaultcolor)
 	{
 		super(location, properties, armorType);
 		this.defaultcolor = FastColor.ARGB32.opaque(defaultcolor);

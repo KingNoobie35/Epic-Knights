@@ -18,32 +18,32 @@ import java.util.function.Supplier;
 
 public class ItemRegistryHelperImpl
 {
-	public static RegistrySupplier<MedievalArmorItem> registerKnightItem(DeferredRegister<Item> items, String id, ArmorType material, ArmorItem.Type type, Item.Properties properties)
+	public static RegistrySupplier<MedievalArmorItem> registerKnightItem(DeferredRegister<Item> items, String id, ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Item.Properties properties)
 	{
 		return items.register(id, () -> new KnightItemNeoForge(material, type, properties));
 	}
 
-	public static RegistrySupplier<MedievalArmorItem> registerJoustingItem(DeferredRegister<Item> items, String id, ArmorType material, ArmorItem.Type type, Item.Properties properties)
+	public static RegistrySupplier<MedievalArmorItem> registerJoustingItem(DeferredRegister<Item> items, String id, ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Item.Properties properties)
 	{
 		return items.register(id, () -> new JoustingItemNeoForge(material, type, properties));
 	}
 
-	public static RegistrySupplier<MedievalArmorItem> registerMedievalArmorItem(DeferredRegister<Item> items, String id, ArmorType material, ArmorItem.Type type, Item.Properties properties)
+	public static RegistrySupplier<MedievalArmorItem> registerMedievalArmorItem(DeferredRegister<Item> items, String id, ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Item.Properties properties)
 	{
 		return items.register(id, () -> new MedievalArmorItemNeoForge(material, type, properties));
 	}
 
-	public static RegistrySupplier<MedievalArmorItem> registerDyeableMedievalArmorItem(DeferredRegister<Item> items, String id, ArmorType material, ArmorItem.Type type, Item.Properties properties, int defaultcolor)
+	public static RegistrySupplier<MedievalArmorItem> registerDyeableMedievalArmorItem(DeferredRegister<Item> items, String id, ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Item.Properties properties, int defaultcolor)
 	{
 		return items.register(id, () -> new DyeableMedievalArmorItemNeoForge(material, type, properties, defaultcolor));
 	}
 
-	public static RegistrySupplier<WearableArmorDecorationItem> registerWearableArmorDecorationItem(DeferredRegister<Item> items, String id, ArmorType material, ArmorItem.Type type, Item.Properties properties)
+	public static RegistrySupplier<WearableArmorDecorationItem> registerWearableArmorDecorationItem(DeferredRegister<Item> items, String id, ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Item.Properties properties)
 	{
 		return items.register(id, () -> new WearableArmorDecorationItemNeoForge(material, type, properties));
 	}
 
-	public static RegistrySupplier<DyeableWearableArmorDecorationItem> registerDyeableWearableArmorDecorationItem(DeferredRegister<Item> items, String id, ArmorType material, ArmorItem.Type type, Item.Properties properties, int defaultcolor)
+	public static RegistrySupplier<DyeableWearableArmorDecorationItem> registerDyeableWearableArmorDecorationItem(DeferredRegister<Item> items, String id, ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Item.Properties properties, int defaultcolor)
 	{
 		return items.register(id, () -> new DyeableWearableArmorDecorationItemNeoForge(material, type, properties, defaultcolor));
 	}
