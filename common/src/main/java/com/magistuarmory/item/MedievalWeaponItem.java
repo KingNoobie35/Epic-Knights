@@ -16,6 +16,7 @@ import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
@@ -48,7 +49,8 @@ public class MedievalWeaponItem extends SwordItem implements IHasModelProperty
 
 	public MedievalWeaponItem(Properties properties, ModItemTier material, WeaponType type)
 	{
-		super(material, properties.stacksTo(1).durability(type.getDurability(material)).attributes(createDefaultAttributeModifiersBuilder(material, type).build()));
+		// SwordItem in 1.21.4 takes: Tier material, float attackDamage, float attackSpeed, Properties
+		super(material, CombatHelper.getBaseAttackDamage(material, type), CombatHelper.getBaseAttackSpeed(material, type), properties.stacksTo(1).durability(type.getDurability(material)).attributes(createDefaultAttributeModifiersBuilder(material, type).build()));
 		this.type = type;
 		this.attackDamage = CombatHelper.getBaseAttackDamage(material, type);
 

@@ -14,6 +14,7 @@ import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.TooltipFlag;
 import org.jetbrains.annotations.NotNull;
 
@@ -21,7 +22,7 @@ import java.util.List;
 
 public class DyeableWearableArmorDecorationItem extends DyeableMedievalArmorItem implements ArmorDecoration
 {
-	public DyeableWearableArmorDecorationItem(ArmorType material, Type type, Properties properties, int defaultcolor)
+	public DyeableWearableArmorDecorationItem(com.magistuarmory.item.armor.ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Properties properties, int defaultcolor)
 	{
 		super(material, type, properties, defaultcolor);
 	}
@@ -45,7 +46,7 @@ public class DyeableWearableArmorDecorationItem extends DyeableMedievalArmorItem
 	}
 
 	@Override
-	public @NotNull Type getType()
+	public @NotNull net.minecraft.world.item.equipment.ArmorType getType()
 	{
 		return this.type;
 	}

@@ -10,6 +10,7 @@ import net.minecraft.util.FastColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.DyedItemColor;
+import net.minecraft.world.item.equipment.ArmorType;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class DyeableMedievalArmorItem extends MedievalArmorItem implements Dyeab
 {
     private final int defaultcolor;
 
-	public DyeableMedievalArmorItem(ArmorType material, Type type, Properties properties, int defaultcolor)
+	public DyeableMedievalArmorItem(com.magistuarmory.item.armor.ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Properties properties, int defaultcolor)
     {
         super(material, type, properties);
         this.defaultcolor = FastColor.ARGB32.opaque(defaultcolor);

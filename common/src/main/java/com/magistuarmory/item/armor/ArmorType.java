@@ -100,12 +100,14 @@ public final class ArmorType
 		return this.material.value().knockbackResistance();
 	}
 
-	public int getDurabilityForType(ArmorItem.@NotNull Type type) {
+	public int getDurabilityForType(net.minecraft.world.item.equipment.@NotNull ArmorType type) {
 		return this.durability.get(type);
 	}
 
-	public int getDefenseForType(ArmorItem.@NotNull Type type) {
-		return this.material.value().getDefense(type);
+	public int getDefenseForType(net.minecraft.world.item.equipment.@NotNull ArmorType type) {
+		// In 1.21.4, defense values are defined on the ArmorMaterial constructor
+		// We need to access them differently - store them internally
+		return this.material.value().defense().apply(type);
 	}
 
 	public int getEnchantmentValue() {

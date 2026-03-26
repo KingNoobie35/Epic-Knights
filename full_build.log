@@ -1,0 +1,526 @@
+
+> Configure project :
+Architect Plugin: 3.4.162
+Architectury Loom: 1.7.435
+You are using an outdated version of Architectury Loom! This version will not receive any support, please consider updating!
+
+> Task :fabric:processResources UP-TO-DATE
+> Task :fabric:processIncludeJars UP-TO-DATE
+> Task :fabric:sourcesJar UP-TO-DATE
+> Task :fabric:validateAccessWidener NO-SOURCE
+> Task :fabric:check
+
+> Task :common:compileJava FAILED
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/entity/layer/HorseArmorDecorationLayer.java:31: error: type HorseModel does not take parameters
+public class HorseArmorDecorationLayer extends RenderLayer<Horse, HorseModel<Horse>> implements ArmorPatternLayer
+                                                                            ^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/model/decoration/HorseArmorDecorationModel.java:10: error: type HorseModel does not take parameters
+public class HorseArmorDecorationModel<T extends AbstractHorse> extends HorseModel<T>
+                                                                                  ^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/entity/layer/HorseArmorDecorationLayer.java:40: error: type HorseModel does not take parameters
+   public HorseArmorDecorationLayer(RenderLayerParent<Horse, HorseModel<Horse>> parent, EntityRendererProvider.Context context, ResourceLocation texture, String name)
+                                                                       ^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/tileentity/HeraldryItemStackRenderer.java:12: error: cannot find symbol
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+                                    ^
+  symbol:   class BlockEntityWithoutLevelRenderer
+  location: package net.minecraft.client.renderer
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/tileentity/HeraldryItemStackRenderer.java:32: error: cannot find symbol
+public class HeraldryItemStackRenderer extends BlockEntityWithoutLevelRenderer implements ShieldPatternLayer {
+                                               ^
+  symbol: class BlockEntityWithoutLevelRenderer
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/ArmorType.java:125: error: cannot find symbol
+	public List<ArmorMaterial.Layer> getLayers() {
+	                         ^
+  symbol:   class Layer
+  location: class ArmorMaterial
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ShieldType.java:4: error: cannot find symbol
+import net.minecraft.world.item.Tier;
+                               ^
+  symbol:   class Tier
+  location: package net.minecraft.world.item
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ModItemTier.java:8: error: cannot find symbol
+import net.minecraft.world.item.Tier;
+                               ^
+  symbol:   class Tier
+  location: package net.minecraft.world.item
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ModItemTier.java:15: error: cannot find symbol
+public class ModItemTier implements Tier
+                                    ^
+  symbol: class Tier
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ShieldType.java:56: error: cannot find symbol
+    public int getDurability(Tier material) {
+                             ^
+  symbol:   class Tier
+  location: class ShieldType
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/MedievalWeaponItem.java:18: error: cannot find symbol
+import net.minecraft.world.InteractionResultHolder;
+                          ^
+  symbol:   class InteractionResultHolder
+  location: package net.minecraft.world
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/KnightItem.java:14: error: cannot find symbol
+import net.minecraft.util.FastColor;
+                         ^
+  symbol:   class FastColor
+  location: package net.minecraft.util
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/DyeableMedievalArmorItem.java:9: error: cannot find symbol
+import net.minecraft.util.FastColor;
+                         ^
+  symbol:   class FastColor
+  location: package net.minecraft.util
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/DyeableArmorDecorationItem.java:6: error: cannot find symbol
+import net.minecraft.util.FastColor;
+                         ^
+  symbol:   class FastColor
+  location: package net.minecraft.util
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/KnightItem.java:25: error: cannot find symbol
+	public KnightItem(ArmorType material, Type type, Properties properties) {
+	                                      ^
+  symbol:   class Type
+  location: class KnightItem
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/MedievalWeaponItem.java:224: error: cannot find symbol
+	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand)
+	       ^
+  symbol:   class InteractionResultHolder
+  location: class MedievalWeaponItem
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/MedievalWeaponItem.java:244: error: cannot find symbol
+	public UseAnim getUseAnimation(ItemStack stack)
+	       ^
+  symbol:   class UseAnim
+  location: class MedievalWeaponItem
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/JoustingItem.java:17: error: cannot find symbol
+	public JoustingItem(ArmorType material, Type type, Properties properties)
+	                                        ^
+  symbol:   class Type
+  location: class JoustingItem
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/MedievalCrossbowItem.java:15: error: cannot find symbol
+import net.minecraft.world.InteractionResultHolder;
+                          ^
+  symbol:   class InteractionResultHolder
+  location: package net.minecraft.world
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/MedievalCrossbowItem.java:52: error: cannot find symbol
+	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
+	       ^
+  symbol:   class InteractionResultHolder
+  location: class MedievalCrossbowItem
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/MedievalBagItem.java:9: error: cannot find symbol
+import net.minecraft.world.InteractionResultHolder;
+                          ^
+  symbol:   class InteractionResultHolder
+  location: package net.minecraft.world
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/MedievalBagItem.java:29: error: cannot find symbol
+	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand)
+	       ^
+  symbol:   class InteractionResultHolder
+  location: class MedievalBagItem
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/LanceItem.java:21: error: cannot find symbol
+import net.minecraft.world.InteractionResultHolder;
+                          ^
+  symbol:   class InteractionResultHolder
+  location: package net.minecraft.world
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/LanceItem.java:83: error: cannot find symbol
+	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand)
+	       ^
+  symbol:   class InteractionResultHolder
+  location: class LanceItem
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/LanceItem.java:203: error: cannot find symbol
+	public UseAnim getUseAnimation(ItemStack stack)
+	       ^
+  symbol:   class UseAnim
+  location: class LanceItem
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/effects/LacerationEffect.java:36: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ArmorDecorationItem.java:92: error: cannot find symbol
+				this.getType() == armor.getType();
+				                       ^
+  symbol:   method getType()
+  location: variable armor of type ArmorItem
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/entity/layer/ArmorDecorationLayer.java:44: error: type argument T#1 is not within bounds of type-variable T#2
+public class ArmorDecorationLayer<T extends LivingEntity, M extends HumanoidModel<T>> extends RenderLayer<T, M> implements ArmorPatternLayer
+                                                                                  ^
+  where T#1,T#2 are type-variables:
+    T#1 extends LivingEntity declared in class ArmorDecorationLayer
+    T#2 extends HumanoidRenderState declared in class HumanoidModel
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/entity/layer/ArmorDecorationLayer.java:44: error: type argument T is not within bounds of type-variable S
+public class ArmorDecorationLayer<T extends LivingEntity, M extends HumanoidModel<T>> extends RenderLayer<T, M> implements ArmorPatternLayer
+                                                                                                          ^
+  where T,S are type-variables:
+    T extends LivingEntity declared in class ArmorDecorationLayer
+    S extends EntityRenderState declared in class RenderLayer
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/entity/layer/ArmorDecorationLayer.java:44: error: ArmorDecorationLayer is not abstract and does not override abstract method render(PoseStack,MultiBufferSource,int,T,float,float) in RenderLayer
+public class ArmorDecorationLayer<T extends LivingEntity, M extends HumanoidModel<T>> extends RenderLayer<T, M> implements ArmorPatternLayer
+       ^
+  where T is a type-variable:
+    T extends LivingEntity declared in class ArmorDecorationLayer
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/entity/layer/ArmorDecorationLayer.java:54: error: type argument T is not within bounds of type-variable S
+   public ArmorDecorationLayer(ArmorDecorationModelSet<T> decorationModels, RenderLayerParent<T, M> parent, EntityRendererProvider.Context context, ResourceLocation location)
+                                                                                              ^
+  where T,S are type-variables:
+    T extends LivingEntity declared in class ArmorDecorationLayer
+    S extends EntityRenderState declared in interface RenderLayerParent
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/entity/layer/ArmorDecorationLayer.java:79: error: method does not override or implement a method from a supertype
+   @Override
+   ^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/entity/layer/ArmorDecorationLayer.java:91: error: cannot find symbol
+      if (stack.getItem() instanceof ArmorItem armoritem && armoritem.getEquipmentSlot() == slot)
+                                                                     ^
+  symbol:   method getEquipmentSlot()
+  location: variable armoritem of type ArmorItem
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/entity/layer/ArmorDecorationLayer.java:115: error: cannot find symbol
+         if (armoritem.getEquipmentSlot() == EquipmentSlot.CHEST && patterns != null)
+                      ^
+  symbol:   method getEquipmentSlot()
+  location: variable armoritem of type ArmorItem
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/model/decoration/ArmorDecorationModel.java:10: error: type argument T#1 is not within bounds of type-variable T#2
+public class ArmorDecorationModel<T extends LivingEntity> extends HumanoidModel<T>
+                                                                                ^
+  where T#1,T#2 are type-variables:
+    T#1 extends LivingEntity declared in class ArmorDecorationModel
+    T#2 extends HumanoidRenderState declared in class HumanoidModel
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/entity/layer/HorseArmorDecorationLayer.java:31: error: type argument Horse is not within bounds of type-variable S
+public class HorseArmorDecorationLayer extends RenderLayer<Horse, HorseModel<Horse>> implements ArmorPatternLayer
+                                                           ^
+  where S is a type-variable:
+    S extends EntityRenderState declared in class RenderLayer
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/entity/layer/HorseArmorDecorationLayer.java:31: error: HorseArmorDecorationLayer is not abstract and does not override abstract method render(PoseStack,MultiBufferSource,int,Horse,float,float) in RenderLayer
+public class HorseArmorDecorationLayer extends RenderLayer<Horse, HorseModel<Horse>> implements ArmorPatternLayer
+       ^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/entity/layer/HorseArmorDecorationLayer.java:40: error: type argument Horse is not within bounds of type-variable S
+   public HorseArmorDecorationLayer(RenderLayerParent<Horse, HorseModel<Horse>> parent, EntityRendererProvider.Context context, ResourceLocation texture, String name)
+                                                      ^
+  where S is a type-variable:
+    S extends EntityRenderState declared in interface RenderLayerParent
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/entity/layer/HorseArmorDecorationLayer.java:58: error: cannot find symbol
+         this.model.prepareMobModel(entity, f, f2, f3);
+                   ^
+  symbol:   method prepareMobModel(Horse,float,float,float)
+  location: variable model of type HorseArmorDecorationModel<Horse>
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/entity/layer/HorseArmorDecorationLayer.java:59: error: cannot find symbol
+         this.model.setupAnim(entity, f, f2, f4, f5, f6);
+                   ^
+  symbol:   method setupAnim(Horse,float,float,float,float,float)
+  location: variable model of type HorseArmorDecorationModel<Horse>
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/model/decoration/HorseArmorDecorationModel.java:17: error: cannot find symbol
+        this.parts = new ModelPart[] { this.body };
+                                           ^
+  symbol: variable body
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/ModRender.java:33: error: type argument LivingEntity is not within bounds of type-variable T
+	public static HumanoidModel<LivingEntity> INNER_ARMOR = null;
+	                            ^
+  where T is a type-variable:
+    T extends HumanoidRenderState declared in class HumanoidModel
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/ModRender.java:34: error: type argument LivingEntity is not within bounds of type-variable T
+	public static HumanoidModel<LivingEntity> OUTER_ARMOR = null;
+	                            ^
+  where T is a type-variable:
+    T extends HumanoidRenderState declared in class HumanoidModel
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/ModRender.java:35: error: type argument LivingEntity is not within bounds of type-variable T
+	public static Map<ResourceLocation, HumanoidModel<LivingEntity>> ARMOR_MODELS_CACHE = new HashMap<>();
+	                                                  ^
+  where T is a type-variable:
+    T extends HumanoidRenderState declared in class HumanoidModel
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/ModRender.java:42: error: cannot access class_326
+			ColorHandlerRegistry.registerItemColors((stack, i) -> i > 0 ? 0xFFFFFFFF : ((DyeableItemLike) stack.getItem()).getColor(stack), supplier.get());
+			                    ^
+  class file for net.minecraft.class_326 not found
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/ModRender.java:76: error: incompatible types: cannot infer type arguments for HumanoidModel<>
+		OUTER_ARMOR = new HumanoidModel<>(context.bakeLayer(ModModels.DEFAULT_ARMOR_LOCATION));
+		                               ^
+    reason: inference variable T has incompatible bounds
+      equality constraints: LivingEntity
+      upper bounds: HumanoidRenderState
+  where T is a type-variable:
+    T extends HumanoidRenderState declared in class HumanoidModel
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/ModRender.java:77: error: incompatible types: cannot infer type arguments for HumanoidModel<>
+		INNER_ARMOR = new HumanoidModel<>(context.bakeLayer(ModModels.DEFAULT_LEGGINGS_LOCATION));
+		                               ^
+    reason: inference variable T has incompatible bounds
+      equality constraints: LivingEntity
+      upper bounds: HumanoidRenderState
+  where T is a type-variable:
+    T extends HumanoidRenderState declared in class HumanoidModel
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/ModRender.java:101: error: type argument LivingEntity is not within bounds of type-variable T
+		HumanoidModel<LivingEntity> model = location.map(
+		              ^
+  where T is a type-variable:
+    T extends HumanoidRenderState declared in class HumanoidModel
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/ModRender.java:102: error: cannot find symbol
+				l -> ARMOR_MODELS_CACHE.computeIfAbsent(l.getModel(),
+				                                         ^
+  symbol:   method getModel()
+  location: variable l of type ModelLayerLocation
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/ModRender.java:104: error: cannot find symbol
+				() -> armor.getType() == net.minecraft.world.item.equipment.ArmorType.LEGGINGS ? ModRender.INNER_ARMOR : ModRender.OUTER_ARMOR);
+				           ^
+  symbol:   method getType()
+  location: variable armor of type MedievalArmorItem
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/ModRender.java:103: error: incompatible types: Object cannot be converted to HumanoidModel<LivingEntity>
+						k -> new HumanoidModel<>(context.bakeLayer(l)))).orElseGet(
+						                                                          ^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/MedievalShieldItem.java:41: error: no suitable method found for of(TagKey<Item>)
+	private Supplier<Ingredient> repairItem = () -> Ingredient.of(ItemTags.PLANKS);
+	                                                          ^
+    method Ingredient.of(ItemLike) is not applicable
+      (argument mismatch; TagKey<Item> cannot be converted to ItemLike)
+    method Ingredient.of(ItemLike...) is not applicable
+      (varargs mismatch; TagKey<Item> cannot be converted to ItemLike)
+    method Ingredient.of(Stream<? extends ItemLike>) is not applicable
+      (argument mismatch; TagKey<Item> cannot be converted to Stream<? extends ItemLike>)
+    method Ingredient.of(HolderSet<Item>) is not applicable
+      (argument mismatch; TagKey<Item> cannot be converted to HolderSet<Item>)
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/MedievalShieldItem.java:101: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/MedievalShieldItem.java:113: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/MedievalShieldItem.java:127: warning: [removal] loadModel(Context) in HeraldryItemStackRenderer has been deprecated and marked for removal
+			this.renderer.loadModel(context);
+			             ^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/MedievalShieldItem.java:170: error: cannot access class_6395
+		ItemPropertiesRegistry.register(this, ResourceLocation.withDefaultNamespace("blocking"), (stack, level, entity, i) ->
+		                      ^
+  class file for net.minecraft.class_6395 not found
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/MedievalArmorItem.java:21: error: type argument LivingEntity is not within bounds of type-variable T
+	protected HumanoidModel<LivingEntity> model = null;
+	                        ^
+  where T is a type-variable:
+    T extends HumanoidRenderState declared in class HumanoidModel
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/MedievalArmorItem.java:27: error: incompatible types: Holder<ArmorMaterial> cannot be converted to ArmorMaterial
+		super(armortype.getMaterial(), type, properties.durability(armortype.getDurabilityForType(type)).stacksTo(1));
+		                           ^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/MedievalArmorItem.java:43: error: incompatible types: bad return type in lambda expression
+						() -> getType() == net.minecraft.world.item.equipment.ArmorType.LEGGINGS ? ModRender.INNER_ARMOR : ModRender.OUTER_ARMOR);
+						                                                                                    ^
+    bad type in conditional expression
+      HumanoidModel<LivingEntity> cannot be converted to HumanoidModel<HumanoidRenderState>
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/MedievalArmorItem.java:43: error: cannot find symbol
+						() -> getType() == net.minecraft.world.item.equipment.ArmorType.LEGGINGS ? ModRender.INNER_ARMOR : ModRender.OUTER_ARMOR);
+						      ^
+  symbol:   method getType()
+  location: class MedievalArmorItem
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/MedievalArmorItem.java:47: error: type argument LivingEntity is not within bounds of type-variable T
+	public void setModel(HumanoidModel<LivingEntity> model) {
+	                                   ^
+  where T is a type-variable:
+    T extends HumanoidRenderState declared in class HumanoidModel
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/MedievalArmorItem.java:52: error: type argument ? extends LivingEntity is not within bounds of type-variable T
+	public HumanoidModel<? extends LivingEntity> getArmorModel(EquipmentSlot slot, HumanoidModel<? extends LivingEntity> _default)
+	                                                                                             ^
+  where T is a type-variable:
+    T extends HumanoidRenderState declared in class HumanoidModel
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/MedievalArmorItem.java:52: error: type argument ? extends LivingEntity is not within bounds of type-variable T
+	public HumanoidModel<? extends LivingEntity> getArmorModel(EquipmentSlot slot, HumanoidModel<? extends LivingEntity> _default)
+	                     ^
+  where T is a type-variable:
+    T extends HumanoidRenderState declared in class HumanoidModel
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/MedievalArmorItem.java:54: error: cannot find symbol
+		if (slot == this.type.getSlot() && this.model != null) {
+		                ^
+  symbol: variable type
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/tileentity/HeraldryItemStackRenderer.java:53: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/tileentity/HeraldryItemStackRenderer.java:59: error: cannot find symbol
+            VertexConsumer vertexconsumer = this.getBaseMaterial(baseColor != null).sprite().wrap(ItemRenderer.getFoilBufferDirect(buffer, this.model.renderType(this.getBaseMaterial(baseColor != null).atlasLocation()), true, stack.hasFoil()));
+                                                                                                              ^
+  symbol:   method getFoilBufferDirect(MultiBufferSource,RenderType,boolean,boolean)
+  location: class ItemRenderer
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/tileentity/ShieldPatternLayer.java:21: error: no suitable method found for buffer(MultiBufferSource,RenderType[...]utout,boolean)
+        return getBaseMaterial(withPattern).buffer(buffer, RenderType::entityCutout, hasfoil);
+                                           ^
+    method Material.buffer(MultiBufferSource,Function<ResourceLocation,RenderType>) is not applicable
+      (actual and formal argument lists differ in length)
+    method Material.buffer(MultiBufferSource,Function<ResourceLocation,RenderType>,boolean,boolean) is not applicable
+      (actual and formal argument lists differ in length)
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/tileentity/ShieldPatternLayer.java:27: error: no suitable method found for buffer(MultiBufferSource,RenderType[...]tline,boolean)
+        return getBasePatternMaterial().buffer(buffer, RenderType::entityNoOutline, hasfoil);
+                                       ^
+    method Material.buffer(MultiBufferSource,Function<ResourceLocation,RenderType>) is not applicable
+      (actual and formal argument lists differ in length)
+    method Material.buffer(MultiBufferSource,Function<ResourceLocation,RenderType>,boolean,boolean) is not applicable
+      (actual and formal argument lists differ in length)
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/client/render/tileentity/ShieldPatternLayer.java:33: error: no suitable method found for buffer(MultiBufferSource,RenderType[...]tline,boolean)
+        return getPatternMaterial(patternlocation).buffer(buffer, RenderType::entityNoOutline, hasfoil);
+                                                  ^
+    method Material.buffer(MultiBufferSource,Function<ResourceLocation,RenderType>) is not applicable
+      (actual and formal argument lists differ in length)
+    method Material.buffer(MultiBufferSource,Function<ResourceLocation,RenderType>,boolean,boolean) is not applicable
+      (actual and formal argument lists differ in length)
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/ArmorType.java:50: error: cannot find symbol
+		List<ArmorMaterial.Layer> layers = dyeable ? 
+		                  ^
+  symbol:   class Layer
+  location: class ArmorMaterial
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/ArmorType.java:51: error: cannot find symbol
+				List.of(new ArmorMaterial.Layer(location, "", true), new ArmorMaterial.Layer(location, "_overlay", false)) : 
+				                         ^
+  symbol:   class Layer
+  location: class ArmorMaterial
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/ArmorType.java:51: error: cannot find symbol
+				List.of(new ArmorMaterial.Layer(location, "", true), new ArmorMaterial.Layer(location, "_overlay", false)) : 
+				                                                                      ^
+  symbol:   class Layer
+  location: class ArmorMaterial
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/ArmorType.java:52: error: cannot find symbol
+				List.of(new ArmorMaterial.Layer(location, "", false));
+				                         ^
+  symbol:   class Layer
+  location: class ArmorMaterial
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/ArmorType.java:83: error: cannot find symbol
+		this(armorMaterials, location, modellocation, toughness, knockbackResistance, durability, defenseForSlot, enchantmentValue, equipSound, enabled, dyeable, () -> Ingredient.EMPTY);
+		                                                                                                                                                                          ^
+  symbol:   variable EMPTY
+  location: class Ingredient
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/ArmorType.java:88: error: no suitable method found for of(TagKey<Item>)
+		this(armorMaterials, location, modellocation, toughness, knockbackResistance, durability, defenseForSlot, enchantmentValue, equipSound, enabled, dyeable, () -> Ingredient.of(TagKey.create(Registries.ITEM, ResourceLocation.parse(repairitemtag))));
+		                                                                                                                                                                          ^
+    method Ingredient.of(ItemLike) is not applicable
+      (argument mismatch; no instance(s) of type variable(s) T exist so that TagKey<T> conforms to ItemLike)
+    method Ingredient.of(ItemLike...) is not applicable
+      (varargs mismatch; no instance(s) of type variable(s) T exist so that TagKey<T> conforms to ItemLike)
+    method Ingredient.of(Stream<? extends ItemLike>) is not applicable
+      (argument mismatch; no instance(s) of type variable(s) T exist so that TagKey<T> conforms to Stream<? extends ItemLike>)
+    method Ingredient.of(HolderSet<Item>) is not applicable
+      (argument mismatch; no instance(s) of type variable(s) T exist so that TagKey<T> conforms to HolderSet<Item>)
+  where T is a type-variable:
+    T extends Object declared in method <T>create(ResourceKey<? extends Registry<T>>,ResourceLocation)
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/ArmorType.java:110: error: cannot find symbol
+		return this.material.value().defense().apply(type);
+		                                      ^
+  symbol:   method apply(@org.jetbrains.annotations.NotNull ArmorType)
+  location: interface Map<ArmorType,Integer>
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/ArmorType.java:122: error: incompatible types: TagKey<Item> cannot be converted to Supplier<Ingredient>
+		return this.material.value().repairIngredient();
+		                                             ^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/ArmorType.java:126: error: cannot find symbol
+		return this.material.value().layers();
+		                            ^
+  symbol:   method layers()
+  location: class ArmorMaterial
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ModItemTier.java:41: error: no suitable method found for of(TagKey<Item>)
+		this.repairIngredient = () -> Ingredient.of(itemTag);
+		                                        ^
+    method Ingredient.of(ItemLike) is not applicable
+      (argument mismatch; TagKey<Item> cannot be converted to ItemLike)
+    method Ingredient.of(ItemLike...) is not applicable
+      (varargs mismatch; TagKey<Item> cannot be converted to ItemLike)
+    method Ingredient.of(Stream<? extends ItemLike>) is not applicable
+      (argument mismatch; TagKey<Item> cannot be converted to Stream<? extends ItemLike>)
+    method Ingredient.of(HolderSet<Item>) is not applicable
+      (argument mismatch; TagKey<Item> cannot be converted to HolderSet<Item>)
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ModItemTier.java:45: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ModItemTier.java:51: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ModItemTier.java:57: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ModItemTier.java:63: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ModItemTier.java:69: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ModItemTier.java:75: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/MedievalWeaponItem.java:51: error: incompatible types: ModItemTier cannot be converted to ToolMaterial
+		super(material, CombatHelper.getBaseAttackDamage(material, type), CombatHelper.getBaseAttackSpeed(material, type), properties.stacksTo(1).durability(type.getDurability(material)).attributes(createDefaultAttributeModifiersBuilder(material, type).build()));
+		      ^
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/MedievalWeaponItem.java:231: error: cannot find symbol
+			return InteractionResultHolder.consume(stack);
+			       ^
+  symbol:   variable InteractionResultHolder
+  location: class MedievalWeaponItem
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/MedievalWeaponItem.java:246: error: cannot find symbol
+		return (canBlock() && blockingPriority) ? UseAnim.BLOCK : super.getUseAnimation(stack);
+		                                          ^
+  symbol:   variable UseAnim
+  location: class MedievalWeaponItem
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ItemsSupply.java:29: error: cannot find symbol
+		this.wood = workshop.apply(ModItemTier.WOOD, prop.get());
+		                                      ^
+  symbol:   variable WOOD
+  location: class ModItemTier
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ItemsSupply.java:30: error: cannot find symbol
+		this.stone = workshop.apply(ModItemTier.STONE, prop.get());
+		                                       ^
+  symbol:   variable STONE
+  location: class ModItemTier
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ItemsSupply.java:31: error: cannot find symbol
+		this.iron = workshop.apply(ModItemTier.IRON, prop.get());
+		                                      ^
+  symbol:   variable IRON
+  location: class ModItemTier
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ItemsSupply.java:32: error: cannot find symbol
+		this.gold = workshop.apply(ModItemTier.GOLD, prop.get());
+		                                      ^
+  symbol:   variable GOLD
+  location: class ModItemTier
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ItemsSupply.java:33: error: cannot find symbol
+		this.diamond = workshop.apply(ModItemTier.DIAMOND, prop.get());
+		                                         ^
+  symbol:   variable DIAMOND
+  location: class ModItemTier
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ItemsSupply.java:34: error: cannot find symbol
+		this.netherite = workshop.apply(ModItemTier.NETHERITE, prop.get().fireResistant());
+		                                           ^
+  symbol:   variable NETHERITE
+  location: class ModItemTier
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ShieldsSupply.java:32: error: cannot find symbol
+		this.woodTexture = "entity/" + ModItemTier.WOOD.getMaterialName() + "_" + shieldName;
+		                                          ^
+  symbol:   variable WOOD
+  location: class ModItemTier
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ShieldsSupply.java:33: error: cannot find symbol
+		this.stoneTexture = "entity/" + ModItemTier.STONE.getMaterialName() + "_" + shieldName;
+		                                           ^
+  symbol:   variable STONE
+  location: class ModItemTier
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ShieldsSupply.java:34: error: cannot find symbol
+		this.ironTexture = "entity/" + ModItemTier.IRON.getMaterialName() + "_" + shieldName;
+		                                          ^
+  symbol:   variable IRON
+  location: class ModItemTier
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ShieldsSupply.java:35: error: cannot find symbol
+		this.goldTexture = "entity/" + ModItemTier.GOLD.getMaterialName() + "_" + shieldName;
+		                                          ^
+  symbol:   variable GOLD
+  location: class ModItemTier
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ShieldsSupply.java:36: error: cannot find symbol
+		this.diamondTexture = "entity/" + ModItemTier.DIAMOND.getMaterialName() + "_" + shieldName;
+		                                             ^
+  symbol:   variable DIAMOND
+  location: class ModItemTier
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/ShieldsSupply.java:40: error: cannot find symbol
+		this.netheriteTexture = "entity/" + ModItemTier.NETHERITE.getMaterialName() + "_" + shieldName;
+		                                               ^
+  symbol:   variable NETHERITE
+  location: class ModItemTier
+/workspaces/Epic-Knights1.0.1/common/src/main/java/com/magistuarmory/item/armor/KnightItem.java:33: error: package FastColor does not exist
+		return FastColor.ARGB32.opaque(info != null ? info.color() : 0);
+		                ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+100 errors
+1 warning
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':common:compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+BUILD FAILED in 4s
+4 actionable tasks: 1 executed, 3 up-to-date

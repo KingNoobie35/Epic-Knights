@@ -10,12 +10,13 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.equipment.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 public class WearableArmorDecorationItem extends MedievalArmorItem implements ArmorDecoration
 {
-	public WearableArmorDecorationItem(ArmorType material, Type type, Properties properties)
+	public WearableArmorDecorationItem(com.magistuarmory.item.armor.ArmorType material, net.minecraft.world.item.equipment.ArmorType type, Properties properties)
 	{
 		super(material, type, properties);
 	}
@@ -39,7 +40,7 @@ public class WearableArmorDecorationItem extends MedievalArmorItem implements Ar
 	}
 
 	@Override
-	public @NotNull Type getType()
+	public @NotNull net.minecraft.world.item.equipment.ArmorType getType()
 	{
 		return this.type;
 	}
