@@ -18,7 +18,7 @@ public class ArmorTypes
 {
 	public static final ArmorConfig ARMOR_CONFIG = EpicKnights.CONFIG.armor;
 
-public static DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister.create(EpicKnights.ID, Registries.ARMOR_MATERIALS);
+public static DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister.create(EpicKnights.ID, Registries.ARMOR_MATERIAL);
 
 	public static final ArmorType MINICROWN;
 	public static final ArmorType CROWN;

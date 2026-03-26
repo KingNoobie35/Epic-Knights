@@ -8,7 +8,7 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
 
 @Environment(EnvType.CLIENT)
-public class CaparisonModel<T extends AbstractHorse> extends HorseArmorDecorationModel<T>
+public class CaparisonModel extends HorseArmorDecorationModel
 {
     public CaparisonModel(ModelPart root)
     {

@@ -16,7 +16,7 @@ public class ModDamageSources
 	
 	public static void setup(RegistryAccess registryAccess)
 	{
-		DAMAGE_TYPES = registryAccess.registry(Registries.DAMAGE_TYPE).orElseThrow();
+		DAMAGE_TYPES = registryAccess.lookup(Registries.DAMAGE_TYPE).orElseThrow();
 		ADDITIONAL = new DamageSource(DAMAGE_TYPES.getHolder(ModDamageTypes.ADDITIONAL).orElseThrow());
 	}
 	

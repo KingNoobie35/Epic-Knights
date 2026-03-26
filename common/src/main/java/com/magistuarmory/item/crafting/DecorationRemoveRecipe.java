@@ -27,7 +27,7 @@ import java.util.List;
 
 public class DecorationRemoveRecipe extends CustomRecipe
 {
-    public static RecipeSerializer<DecorationRemoveRecipe> SERIALIZER = RecipeSerializer.simple(DecorationRemoveRecipe::new);
+    public static RecipeSerializer<DecorationRemoveRecipe> SERIALIZER = RecipeSerializer.simple((access) -> new DecorationRemoveRecipe(access.getCategory()));
 
     public DecorationRemoveRecipe(CraftingBookCategory category)
     {
@@ -159,7 +159,7 @@ public class DecorationRemoveRecipe extends CustomRecipe
                 CompoundTag tag = listtag.getCompound(listtag.size() - 1);
                 String name = tag.getString("name");
                 int color = tag.getInt("color");
-                ArmorDecoration decoration = (ArmorDecoration) BuiltInRegistries.ITEM.get(ResourceLocation.parse(name + "_decoration"));
+                ArmorDecoration decoration = (ArmorDecoration) BuiltInRegistries.ITEM.get(ResourceLocation.parse(name + "_decoration")).orElseThrow();
                 ItemStack decorationstack = new ItemStack(decoration);
                 if (decoration instanceof DyeableArmorDecorationItem dyeabedecoration && dyeabedecoration.getColor(decorationstack) != color)
                     dyeabedecoration.setColor(decorationstack, color);
