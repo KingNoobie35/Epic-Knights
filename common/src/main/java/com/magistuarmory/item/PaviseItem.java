@@ -60,8 +60,8 @@ public class PaviseItem extends MedievalShieldItem
 		InteractionResult interactionResult = this.place(new BlockPlaceContext(context));
 		if (!interactionResult.consumesAction() && context.getItemInHand().has(DataComponents.FOOD)) 
 		{
-			InteractionResult interactionResult2 = super.use(context.getLevel(), context.getPlayer(), context.getHand()).getResult();
-			return interactionResult2 == InteractionResult.CONSUME ? InteractionResult.CONSUME_PARTIAL : interactionResult2;
+		InteractionResult interactionResult2 = super.use(context.getLevel(), context.getPlayer(), context.getHand());
+		return interactionResult2 == InteractionResult.CONSUME ? InteractionResult.CONSUME : interactionResult2;
 		} 
 		else 
 		{
@@ -152,11 +152,6 @@ public class PaviseItem extends MedievalShieldItem
 			return false;
 		level.setBlock(aboveblockpos, ModBlocks.PAVISE_UPPER_COLLISION.get().defaultBlockState(), 27);
 		return true;
-	}
-
-	public String getDescriptionId()
-	{
-		return this.getBlock().getDescriptionId();
 	}
 
 	@Override

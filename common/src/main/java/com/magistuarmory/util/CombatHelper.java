@@ -136,7 +136,7 @@ public class CombatHelper
 
 	public static float getDamageAfterAbsorb(DamageSource source, LivingEntity victim, float damage)
 	{
-		if (victim.isInvulnerableTo(source) || damage <= 0.0f)
+		if (damage <= 0.0f)
 			return 0.0f;
 
 		damage = getDamageAfterArmorAbsorb(source, victim, damage);

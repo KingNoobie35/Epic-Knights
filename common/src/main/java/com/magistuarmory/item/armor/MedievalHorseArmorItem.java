@@ -11,7 +11,7 @@ public class MedievalHorseArmorItem extends AnimalArmorItem
 	private final ResourceLocation texture;
 
 	public MedievalHorseArmorItem(Holder<ArmorMaterial> material, ResourceLocation texture, boolean dyeable, Item.Properties properties) {
-		super(material, AnimalArmorItem.BodyType.EQUESTRIAN, dyeable, properties.stacksTo(1));
+		super(material.value(), AnimalArmorItem.BodyType.EQUESTRIAN, SoundEvents.ARMOR_EQUIP_LEATHER, dyeable, properties.stacksTo(1));
 		this.texture = texture;
 	}
 

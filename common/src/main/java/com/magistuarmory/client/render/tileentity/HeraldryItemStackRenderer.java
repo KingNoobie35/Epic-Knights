@@ -1,15 +1,9 @@
 package com.magistuarmory.client.render.tileentity;
 
-import com.magistuarmory.client.render.model.ModModels;
 import com.magistuarmory.client.render.model.item.MedievalShieldModel;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.datafixers.util.Pair;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.Model;
-import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -29,14 +23,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Environment(EnvType.CLIENT)
-public class HeraldryItemStackRenderer extends BlockEntityWithoutLevelRenderer implements ShieldPatternLayer {
+public class HeraldryItemStackRenderer implements ShieldPatternLayer {
     private Model model;
     private final ResourceLocation location;
     private final MaterialContainer materialContainer;
 
 
     public HeraldryItemStackRenderer(String id, ResourceLocation location) {
-        super(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels());
         this.location = location;
         this.materialContainer = new MaterialContainer(id, location, "entity/" + location.getPath() + "/");
     }
@@ -56,7 +49,7 @@ public class HeraldryItemStackRenderer extends BlockEntityWithoutLevelRenderer i
             pose.pushPose();
             pose.scale(1.0F, -1.0F, -1.0F);
             DyeColor baseColor = stack.get(DataComponents.BASE_COLOR);
-            VertexConsumer vertexconsumer = this.getBaseMaterial(baseColor != null).sprite().wrap(ItemRenderer.getFoilBufferDirect(buffer, this.model.renderType(this.getBaseMaterial(baseColor != null).atlasLocation()), true, stack.hasFoil()));
+            VertexConsumer vertexconsumer = ItemRenderer.getArmorFoilBuffer(buffer, this.model.renderType(this.getBaseMaterial(baseColor != null).atlasLocation()), stack.hasFoil());
             shieldmodel.handle().render(pose, vertexconsumer, p, overlay, 0xFFFFFF);
             BannerPatternLayers patterns = stack.get(DataComponents.BANNER_PATTERNS);
             List<Pair<Holder<BannerPattern>, DyeColor>> list = patterns == null ? new ArrayList<>() : patterns.layers().stream().map(l -> Pair.of(l.pattern(), l.color())).collect(Collectors.toList());

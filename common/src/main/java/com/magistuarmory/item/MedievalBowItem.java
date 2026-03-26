@@ -29,7 +29,7 @@ public class MedievalBowItem extends BowItem implements IHasModelProperty
     }
 
     @Override
-    public void releaseUsing(ItemStack itemStack, Level level, LivingEntity livingEntity, int i) {
+    public boolean releaseUsing(ItemStack itemStack, Level level, LivingEntity livingEntity, int i) {
         if (livingEntity instanceof Player player) {
             ItemStack itemStack2 = player.getProjectile(itemStack);
             if (!itemStack2.isEmpty()) {
@@ -46,6 +46,7 @@ public class MedievalBowItem extends BowItem implements IHasModelProperty
                 }
             }
         }
+        return true;
     }
 
     public float getPower(int p_185059_0_)

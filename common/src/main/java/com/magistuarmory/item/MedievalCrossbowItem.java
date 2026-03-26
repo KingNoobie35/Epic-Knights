@@ -66,7 +66,7 @@ public class MedievalCrossbowItem extends CrossbowItem implements IHasModelPrope
 	}
 
 	@Override
-	public void releaseUsing(ItemStack itemStack, Level level, LivingEntity livingEntity, int i) {
+	public boolean releaseUsing(ItemStack itemStack, Level level, LivingEntity livingEntity, int i) {
 		int j = this.getUseDuration(itemStack, livingEntity) - i;
 		float f = getPower(j, itemStack, livingEntity);
 		if (f >= 1.0F && !isCharged(itemStack) && tryLoadProjectiles(livingEntity, itemStack)) {
@@ -75,7 +75,7 @@ public class MedievalCrossbowItem extends CrossbowItem implements IHasModelPrope
 				level.playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), holder.value(), livingEntity.getSoundSource(), 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
 			});
 		}
-
+		return true;
 	}
 
 	private static boolean tryLoadProjectiles(LivingEntity livingEntity, ItemStack itemStack) {

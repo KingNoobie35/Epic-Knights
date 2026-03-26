@@ -67,7 +67,7 @@ public class MobEquipment
             {
                 if (itemoptional.get() instanceof ArmorItem armor)
                 {
-                    switch (armor.getType().getSlot())
+                    switch (armor.getEquipmentSlot())
                     {
                         case HEAD -> this.helmets.add(armor);
                         case CHEST -> this.chestplates.add(armor);

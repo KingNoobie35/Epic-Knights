@@ -8,6 +8,8 @@ import net.minecraft.Util;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.TagKey;
@@ -47,11 +49,11 @@ public final class ArmorType
 
 	public ArmorType(DeferredRegister<ArmorMaterial> armorMaterial, ResourceLocation location, ResourceLocation modellocation, float toughness, float knockbackResistance, Integer[] durability, Integer[] defenseForSlot, int enchantmentValue, Holder<SoundEvent> equipSound, boolean enabled, boolean dyeable, Supplier<Ingredient> repairIngredient)
 	{
-		List<ArmorMaterial.Layer> layers = dyeable ? 
-				List.of(new ArmorMaterial.Layer(location, "", true), new ArmorMaterial.Layer(location, "_overlay", false)) : 
-				List.of(new ArmorMaterial.Layer(location, "", false));
-
-		this.material = armorMaterial.register(location, () -> new ArmorMaterial(
+		this.material = armorMaterial.register(location, () -> {
+			int totalDurability = java.util.Arrays.stream(durability).mapToInt(Integer::intValue).max().orElse(0);
+			ResourceKey<net.minecraft.world.item.equipment.EquipmentAsset> assetId = ResourceKey.create(Registries.EQUIPMENT_ASSET, location);
+			return new ArmorMaterial(
+				totalDurability,
 				Util.make(new EnumMap<>(net.minecraft.world.item.equipment.ArmorType.class), (enumMap) -> {
 					enumMap.put(net.minecraft.world.item.equipment.ArmorType.BOOTS, defenseForSlot[0]);
 					enumMap.put(net.minecraft.world.item.equipment.ArmorType.LEGGINGS, defenseForSlot[1]);
@@ -62,10 +64,10 @@ public final class ArmorType
 				enchantmentValue,
 				equipSound,
 				repairIngredient,
-				layers,
 				toughness,
 				knockbackResistance
-		));
+			);
+		});
 		this.location = location;
 		this.modellocation = modellocation;
 		this.durability = Util.make(new EnumMap<>(net.minecraft.world.item.equipment.ArmorType.class), (enumMap) -> {
@@ -107,7 +109,7 @@ public final class ArmorType
 	public int getDefenseForType(net.minecraft.world.item.equipment.@NotNull ArmorType type) {
 		// In 1.21.4, defense values are defined on the ArmorMaterial constructor
 		// We need to access them differently - store them internally
-		return this.material.value().defense().apply(type);
+		return this.material.value().defense().get(type);
 	}
 
 	public int getEnchantmentValue() {
@@ -120,10 +122,6 @@ public final class ArmorType
 
 	public Supplier<Ingredient> getRepairIngredient() {
 		return this.material.value().repairIngredient();
-	}
-	
-	public List<net.minecraft.world.item.equipment.ArmorMaterial.Layer> getLayers() {
-		return this.material.value().layers();
 	}
 	
 	public boolean isDisabled()

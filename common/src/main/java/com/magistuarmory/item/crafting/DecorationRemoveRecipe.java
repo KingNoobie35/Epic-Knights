@@ -27,7 +27,7 @@ import java.util.List;
 
 public class DecorationRemoveRecipe extends CustomRecipe
 {
-    public static RecipeSerializer<DecorationRemoveRecipe> SERIALIZER = new SimpleCraftingRecipeSerializer<>(DecorationRemoveRecipe::new);
+    public static RecipeSerializer<DecorationRemoveRecipe> SERIALIZER = RecipeSerializer.simple(DecorationRemoveRecipe::new);
 
     public DecorationRemoveRecipe(CraftingBookCategory category)
     {
@@ -99,7 +99,7 @@ public class DecorationRemoveRecipe extends CustomRecipe
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer()
+    public RecipeSerializer<? extends CustomRecipe> getSerializer() {
     {
         return getSerializerInstance();
     }

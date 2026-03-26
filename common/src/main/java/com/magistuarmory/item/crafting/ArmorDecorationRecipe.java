@@ -14,7 +14,7 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 public class ArmorDecorationRecipe extends CustomRecipe {
-    public static RecipeSerializer<ArmorDecorationRecipe> SERIALIZER = new SimpleCraftingRecipeSerializer<>(ArmorDecorationRecipe::new);
+    public static RecipeSerializer<ArmorDecorationRecipe> SERIALIZER = RecipeSerializer.simple(ArmorDecorationRecipe::new);
     
     public ArmorDecorationRecipe(CraftingBookCategory category) {
         super(category);
@@ -116,7 +116,7 @@ public class ArmorDecorationRecipe extends CustomRecipe {
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
+    public RecipeSerializer<? extends CustomRecipe> getSerializer() {
         return getSerializerInstance();
     }
 
