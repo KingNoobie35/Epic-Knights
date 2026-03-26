@@ -100,7 +100,6 @@ public class DecorationRemoveRecipe extends CustomRecipe
 
     @Override
     public RecipeSerializer<? extends CustomRecipe> getSerializer() {
-    {
         return getSerializerInstance();
     }
 

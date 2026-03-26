@@ -119,10 +119,10 @@ public class ArmorConfig implements ConfigData
                     material.knockbackResistance(),
                     durability,
                     new Integer[]{
-                            material.getDefense(net.minecraft.world.item.equipment.ArmorType.BOOTS),
-                            material.getDefense(net.minecraft.world.item.equipment.ArmorType.LEGGINGS),
-                            material.getDefense(net.minecraft.world.item.equipment.ArmorType.CHESTPLATE),
-                            material.getDefense(net.minecraft.world.item.equipment.ArmorType.HELMET)
+                            material.defense().get(net.minecraft.world.item.equipment.ArmorType.BOOTS),
+                            material.defense().get(net.minecraft.world.item.equipment.ArmorType.LEGGINGS),
+                            material.defense().get(net.minecraft.world.item.equipment.ArmorType.CHESTPLATE),
+                            material.defense().get(net.minecraft.world.item.equipment.ArmorType.HELMET)
                     },
                     material.enchantmentValue(),
                     enabled

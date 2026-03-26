@@ -2,6 +2,7 @@ package com.magistuarmory.misc;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.mojang.serialization.Codec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
@@ -9,10 +10,10 @@ import net.minecraft.util.profiling.ProfilerFiller;
 
 import java.util.Map;
 
-public class HeraldryReloadListener extends SimpleJsonResourceReloadListener {
+public class HeraldryReloadListener extends SimpleJsonResourceReloadListener<Map<ResourceLocation, JsonElement>> {
 
     public HeraldryReloadListener() {
-        super(new Gson(), "heraldry");
+        super(Codec.unboundedMap(ResourceLocation.CODEC, Codec.PASSTHROUGH), "heraldry");
     }
 
     @Override
