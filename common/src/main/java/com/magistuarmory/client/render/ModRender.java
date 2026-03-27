@@ -31,10 +31,10 @@ import java.util.Optional;
 @Environment(EnvType.CLIENT)
 public class ModRender
 {
-	public static HumanoidModel<LivingEntity> INNER_ARMOR = null;
-	public static HumanoidModel<LivingEntity> OUTER_ARMOR = null;
-	public static Map<ResourceLocation, HumanoidModel<LivingEntity>> ARMOR_MODELS_CACHE = new HashMap<>();
-	public static Map<ResourceLocation, Model> SHIELD_MODELS_CACHE = new HashMap<>();
+	public static HumanoidModel INNER_ARMOR = null;
+	public static HumanoidModel OUTER_ARMOR = null;
+	public static Map<ResourceLocation, HumanoidModel> ARMOR_MODELS_CACHE = new HashMap<>();
+	public static Map<ResourceLocation, MedievalShieldModel> SHIELD_MODELS_CACHE = new HashMap<>();
 
 	public static void setup(ModItemsProvider content)
 	{
@@ -74,8 +74,8 @@ public class ModRender
 
 	public static void loadModels(ModItemsProvider content, EntityRendererProvider.Context context)
 	{
-		OUTER_ARMOR = new HumanoidModel<>(context.bakeLayer(ModModels.DEFAULT_ARMOR_LOCATION));
-		INNER_ARMOR = new HumanoidModel<>(context.bakeLayer(ModModels.DEFAULT_LEGGINGS_LOCATION));
+		OUTER_ARMOR = new HumanoidModel(context.bakeLayer(ModModels.DEFAULT_ARMOR_LOCATION));
+		INNER_ARMOR = new HumanoidModel(context.bakeLayer(ModModels.DEFAULT_LEGGINGS_LOCATION));
 
 		for (RegistrySupplier<? extends MedievalShieldItem> supplier : content.shieldItems)
 			loadShieldModel(context, supplier.get());
@@ -91,7 +91,7 @@ public class ModRender
 		}
 
 		ResourceLocation location = shield.getLocation();
-		Model model = SHIELD_MODELS_CACHE.computeIfAbsent(location,
+		MedievalShieldModel model = SHIELD_MODELS_CACHE.computeIfAbsent(location,
 				k -> new MedievalShieldModel(context.bakeLayer(ModModels.createLocation(location))));
 		shield.getRenderer().setModel(model);
 	}

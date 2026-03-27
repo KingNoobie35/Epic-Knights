@@ -33,7 +33,6 @@ public class LacerationEffect extends MobEffect
 		return false;
 	}
 
-	@Override
 	public boolean applyEffectTick(LivingEntity victim, int i) 
 	{
 		if (victim.getHealth() > victim.getMaxHealth())
