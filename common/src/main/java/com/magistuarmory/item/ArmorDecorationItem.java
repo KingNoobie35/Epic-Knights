@@ -2,7 +2,7 @@ package com.magistuarmory.item;
 
 import com.google.common.collect.Lists;
 import com.magistuarmory.EpicKnights;
-import com.magistuarmory.client.render.model.ModModels;
+// import com.magistuarmory.client.render.model.ModModels;
 import com.magistuarmory.component.ModDataComponents;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

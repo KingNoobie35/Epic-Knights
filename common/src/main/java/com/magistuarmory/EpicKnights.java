@@ -2,7 +2,7 @@ package com.magistuarmory;
 
 import com.magistuarmory.block.ModBlockEntityTypes;
 import com.magistuarmory.block.ModBlocks;
-import com.magistuarmory.client.render.model.ModModels;
+// import com.magistuarmory.client.render.model.ModModels;
 import com.magistuarmory.component.ModDataComponents;
 import com.magistuarmory.config.GeneralConfig;
 import com.magistuarmory.config.ModConfig;

@@ -1,6 +1,6 @@
 package com.magistuarmory.item.armor;
 
-import com.magistuarmory.client.render.ModRender;
+// import com.magistuarmory.client.render.ModRender;
 import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.annotation.Nullable;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -18,13 +18,13 @@ import java.util.Optional;
 public class MedievalArmorItem extends ArmorItem implements ISurcoat
 {
 	@Nullable
-	protected HumanoidModel<LivingEntity> model = null;
+	protected HumanoidModel model = null;
 	
 	private final com.magistuarmory.item.armor.ArmorType armortype;
 
 	public MedievalArmorItem(com.magistuarmory.item.armor.ArmorType armortype, net.minecraft.world.item.equipment.ArmorType type, Properties properties)
 	{
-		super(armortype.getMaterial(), type, properties.durability(armortype.getDurabilityForType(type)).stacksTo(1));
+		super(armortype.getMaterial().value(), type, properties.durability(armortype.getDurabilityForType(type)).stacksTo(1));
 		this.armortype = armortype;
 	}
 
@@ -37,15 +37,16 @@ public class MedievalArmorItem extends ArmorItem implements ISurcoat
 	@Environment(EnvType.CLIENT)
 	public void loadModel(EntityRendererProvider.Context context)
 	{
-		Optional<ModelLayerLocation> location = this.armortype.getModelLocation();
+		// Armor model loading disabled for 1.21.4
+		/* Optional<ModelLayerLocation> location = this.armortype.getModelLocation();
         this.model = location.map(
 				l -> new HumanoidModel<>(context.bakeLayer(l))).orElseGet(
-						() -> getType() == net.minecraft.world.item.equipment.ArmorType.LEGGINGS ? ModRender.INNER_ARMOR : ModRender.OUTER_ARMOR);
+						() -> getType() == net.minecraft.world.item.equipment.ArmorType.LEGGINGS ? ModRender.INNER_ARMOR : ModRender.OUTER_ARMOR); */
 	}
 
 	@Environment(EnvType.CLIENT)
-	public void setModel(HumanoidModel<LivingEntity> model) {
-		this.model = model;
+	public void setModel(Object model) {
+		this.model = (HumanoidModel) model;
 	}
 
 	@Environment(EnvType.CLIENT)

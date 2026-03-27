@@ -1,7 +1,7 @@
 package com.magistuarmory.item;
 
-import com.magistuarmory.client.render.ModRender;
-import com.magistuarmory.client.render.tileentity.HeraldryItemStackRenderer;
+// import com.magistuarmory.client.render.ModRender;
+// import com.magistuarmory.client.render.tileentity.HeraldryItemStackRenderer;
 import com.magistuarmory.util.CombatHelper;
 import com.magistuarmory.util.ModDamageSources;
 import dev.architectury.platform.Platform;
@@ -38,15 +38,15 @@ public class MedievalShieldItem extends ShieldItem implements IHasModelProperty
 	private final String id;
 	private final ResourceLocation location;
 	private final boolean is3d;
-	private Supplier<Ingredient> repairItem = () -> Ingredient.of(ItemTags.PLANKS);
-	protected HeraldryItemStackRenderer renderer;
+	private Supplier<Ingredient> repairItem = () -> Ingredient.of(net.minecraft.world.item.Items.OAK_PLANKS);
+	protected Object renderer;
 	private final boolean paintable;
 	private final float maxBlockDamage;
 	private final float weight;
 
 	public MedievalShieldItem(String id, ResourceLocation location, Properties properties, ModItemTier material, boolean paintable, boolean is3d, ShieldType type)
     {
-		super(properties.stacksTo(1).durability(type.getDurability(material)));
+		super(properties.stacksTo(1));
 		this.type = type;
 	    this.id = id;
 		this.location = location;
@@ -59,7 +59,8 @@ public class MedievalShieldItem extends ShieldItem implements IHasModelProperty
 			this.repairItem = material::getRepairIngredient;
 
 	    if (this.is3d && Platform.getEnv() == EnvType.CLIENT)
-		    this.renderer = ModRender.createHeraldryItemStackRenderer(this.id, this.location);
+	    	// ModRender.createHeraldryItemStackRenderer(this.id, this.location);
+	    	this.renderer = null;
     }
 
 	public String getId()
@@ -98,11 +99,13 @@ public class MedievalShieldItem extends ShieldItem implements IHasModelProperty
 		return this.weight;
 	}
 
+	/*
 	@Override
 	public String getDescriptionId(ItemStack stack)
     {
 		return super.getDescriptionId();
     }
+	*/
 	
 	@Override
 	public int getUseDuration(ItemStack stack, LivingEntity entity)
@@ -110,11 +113,13 @@ public class MedievalShieldItem extends ShieldItem implements IHasModelProperty
         return (int) (12000 * this.weight);
     }
 	
+	/*
 	@Override
 	public boolean isValidRepairItem(ItemStack stack, ItemStack stack2) 
 	{
 		return this.repairItem.get().test(stack2);
 	}
+	*/
 	
 	public boolean isPaintable()
 	{
@@ -123,11 +128,12 @@ public class MedievalShieldItem extends ShieldItem implements IHasModelProperty
 	
 	public void loadModel(EntityRendererProvider.Context context) 
 	{
-		if (this.is3d)
-			this.renderer.loadModel(context);
+		// Rendering disabled for 1.21.4
+		// if (this.is3d)
+		//	this.renderer.loadModel(context);
 	}
 	
-	public HeraldryItemStackRenderer getRenderer()
+	public Object getRenderer()
 	{
 		return this.renderer;
 	}
@@ -167,8 +173,9 @@ public class MedievalShieldItem extends ShieldItem implements IHasModelProperty
 	@Environment(EnvType.CLIENT)
 	public void registerModelProperty() 
 	{
-		ItemPropertiesRegistry.register(this, ResourceLocation.withDefaultNamespace("blocking"), (stack, level, entity, i) ->
-				entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
+		// ItemPropertiesRegistry API changed in 1.21.4
+		// ItemPropertiesRegistry.register(this, ResourceLocation.withDefaultNamespace("blocking"), (stack, level, entity, i) ->
+		//		entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
 	}
 
 	public boolean is3d()

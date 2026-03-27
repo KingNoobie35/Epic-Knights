@@ -1,10 +1,6 @@
 package com.magistuarmory.client.render;
 
 import com.magistuarmory.api.item.ModItemsProvider;
-import com.magistuarmory.client.render.model.ModModels;
-import com.magistuarmory.client.render.model.item.MedievalShieldModel;
-import com.magistuarmory.client.render.tileentity.HeraldryItemStackRenderer;
-import com.magistuarmory.client.render.tileentity.PaviseBlockRenderer;
 import com.magistuarmory.item.*;
 import com.magistuarmory.item.armor.MedievalArmorItem;
 import dev.architectury.injectables.annotations.ExpectPlatform;
@@ -13,7 +9,6 @@ import dev.architectury.registry.client.rendering.ColorHandlerRegistry;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.Model;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -34,7 +29,7 @@ public class ModRender
 	public static HumanoidModel INNER_ARMOR = null;
 	public static HumanoidModel OUTER_ARMOR = null;
 	public static Map<ResourceLocation, HumanoidModel> ARMOR_MODELS_CACHE = new HashMap<>();
-	public static Map<ResourceLocation, MedievalShieldModel> SHIELD_MODELS_CACHE = new HashMap<>();
+	public static Map<ResourceLocation, Object> SHIELD_MODELS_CACHE = new HashMap<>();
 
 	public static void setup(ModItemsProvider content)
 	{
@@ -86,28 +81,16 @@ public class ModRender
 
 	public static void loadShieldModel(EntityRendererProvider.Context context, MedievalShieldItem shield)
 	{
-		if (!shield.is3d()) {
-			return;
-		}
-
-		ResourceLocation location = shield.getLocation();
-		MedievalShieldModel model = SHIELD_MODELS_CACHE.computeIfAbsent(location,
-				k -> new MedievalShieldModel(context.bakeLayer(ModModels.createLocation(location))));
-		shield.getRenderer().setModel(model);
+		// Shield model rendering disabled for 1.21.4
 	}
 
 	public static void loadArmorModel(EntityRendererProvider.Context context, MedievalArmorItem armor)
 	{
-		Optional<ModelLayerLocation> location = armor.getArmorType().getModelLocation();
-		HumanoidModel<LivingEntity> model = location.map(
-				l -> ARMOR_MODELS_CACHE.computeIfAbsent(l.getModel(),
-						k -> new HumanoidModel<>(context.bakeLayer(l)))).orElseGet(
-				() -> armor.getType() == net.minecraft.world.item.equipment.ArmorType.LEGGINGS ? ModRender.INNER_ARMOR : ModRender.OUTER_ARMOR);
-		armor.setModel(model);
+		// Armor rendering not fully compatible with 1.21.4 rendering system
 	}
 
 	@ExpectPlatform
-	public static HeraldryItemStackRenderer createHeraldryItemStackRenderer(String id, ResourceLocation location)
+	public static Object createHeraldryItemStackRenderer(String id, ResourceLocation location)
 	{
 		throw new AssertionError();
 	}

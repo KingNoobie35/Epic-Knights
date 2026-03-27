@@ -2,7 +2,7 @@ package com.magistuarmory.event;
 
 import com.magistuarmory.EpicKnights;
 import com.magistuarmory.client.HitResultHelper;
-import com.magistuarmory.client.render.ModRender;
+// import com.magistuarmory.client.render.ModRender;
 import com.magistuarmory.item.LanceItem;
 import com.magistuarmory.item.MedievalWeaponItem;
 import com.magistuarmory.util.CombatHelper;
@@ -26,7 +26,8 @@ public class ClientEvents
 	public static void init()
 	{
 		ClientRawInputEvent.MOUSE_CLICKED_PRE.register(ClientEvents::onMouseInput);
-		LifecycleEvent.SETUP.register(ModRender::registerRenderers);
+		// ModRender.registerRenderers disabled for 1.21.4
+		// LifecycleEvent.SETUP.register(ModRender::registerRenderers);
 		ClientPlayerEvent.CLIENT_PLAYER_JOIN.register(ClientEvents::onClientPlayerJoin);
 	}
 
