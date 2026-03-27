@@ -57,7 +57,7 @@ public class ModItemTags extends ItemTagsProvider {
         for (RegistrySupplier<? extends MedievalArmorItem> supplier : ModItems.INSTANCE.armorItems) {
             MedievalArmorItem armor = supplier.get();
             tag(ARMORS).add(armor);
-            switch (armor.getEquipmentSlot()) {
+            switch (armor.type.getSlot()) {
                 case HEAD -> tag(ARMORS_HELMETS).add(armor);
                 case CHEST -> tag(ARMORS_CHESTPLATES).add(armor);
                 case BODY -> tag(ARMORS_CHESTPLATES).add(armor);

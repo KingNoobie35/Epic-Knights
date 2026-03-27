@@ -14,7 +14,21 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 public class ArmorDecorationRecipe extends CustomRecipe {
-    public static RecipeSerializer<ArmorDecorationRecipe> SERIALIZER = RecipeSerializer.simple((access) -> new ArmorDecorationRecipe(access.getCategory()));
+    public static RecipeSerializer<ArmorDecorationRecipe> SERIALIZER = new RecipeSerializer<ArmorDecorationRecipe>() {
+        @Override
+        public ArmorDecorationRecipe fromJson(net.minecraft.resources.ResourceLocation id, com.google.gson.JsonObject json, HolderLookup.Provider access) {
+            return new ArmorDecorationRecipe(CraftingBookCategory.MISC);
+        }
+
+        @Override
+        public ArmorDecorationRecipe fromNetwork(net.minecraft.resources.ResourceLocation id, net.minecraft.network.FriendlyByteBuf buf, HolderLookup.Provider access) {
+            return new ArmorDecorationRecipe(CraftingBookCategory.MISC);
+        }
+
+        @Override
+        public void toNetwork(net.minecraft.network.FriendlyByteBuf buf, ArmorDecorationRecipe recipe) {
+        }
+    };
     
     public ArmorDecorationRecipe(CraftingBookCategory category) {
         super(category);
