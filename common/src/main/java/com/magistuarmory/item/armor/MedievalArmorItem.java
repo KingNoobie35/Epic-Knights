@@ -38,10 +38,10 @@ public class MedievalArmorItem extends ArmorItem implements ISurcoat
 	public void loadModel(EntityRendererProvider.Context context)
 	{
 		// Armor model loading disabled for 1.21.4
-		/* Optional<ModelLayerLocation> location = this.armortype.getModelLocation();
-        this.model = location.map(
-				l -> new HumanoidModel<>(context.bakeLayer(l))).orElseGet(
-						() -> getType() == net.minecraft.world.item.equipment.ArmorType.LEGGINGS ? ModRender.INNER_ARMOR : ModRender.OUTER_ARMOR); */
+		// Optional<ModelLayerLocation> location = this.armortype.getModelLocation();
+		// this.model = location.map(
+		//		l -> new HumanoidModel<>(context.bakeLayer(l))).orElseGet(
+		//				() -> getType() == net.minecraft.world.item.equipment.ArmorType.LEGGINGS ? ModRender.INNER_ARMOR : ModRender.OUTER_ARMOR);
 	}
 
 	@Environment(EnvType.CLIENT)
