@@ -54,7 +54,7 @@ public class ShieldType {
     }
 
     public int getDurability(net.minecraft.world.item.ToolMaterial material) {
-        return (int) (this.baseDurability + this.materialFactor * material.getUses());
+        return (int) (this.baseDurability + this.materialFactor * material.durability());
     }
 
     public int getBaseDurability() {

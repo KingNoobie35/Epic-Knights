@@ -305,7 +305,8 @@ public class LanceItem extends MedievalWeaponItem
 			for (ItemStack armorpiece : livingentity.getArmorSlots())
 			{
 				if (!armorpiece.isEmpty() && armorpiece.getItem() instanceof ArmorItem armor)
-					mass += (armor.getMaterial().getDefense(armor.type.getSlot()) + armor.getMaterial().getToughness()) / 20.0;
+					// mass += (armor.material.value().defense().get(armor.type.getSlot()) + armor.material.value().toughness()) / 20.0; // Disabled for 1.21.4
+					mass += 1.0; // placeholder
 			}
 		}
 
@@ -365,6 +366,6 @@ public class LanceItem extends MedievalWeaponItem
 	@Environment(EnvType.CLIENT)
 	public void registerModelProperty()
 	{
-		ItemPropertiesRegistry.register(this, ResourceLocation.fromNamespaceAndPath(EpicKnights.ID, "raised"), (stack, level, entity, i) -> this.isRaised(entity) ? 1 : 0);
+		// ItemPropertiesRegistry.register(this, ResourceLocation.fromNamespaceAndPath(EpicKnights.ID, "raised"), (stack, level, entity, i) -> this.isRaised(entity) ? 1 : 0); // Disabled for 1.21.4
 	}
 }

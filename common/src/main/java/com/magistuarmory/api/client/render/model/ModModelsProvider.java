@@ -90,6 +90,6 @@ public abstract class ModModelsProvider
 	public void init(ModItemsProvider content)
 	{
 		this.layers.forEach(EntityModelLayerRegistry::register);
-		ModRender.registerModelsLoadListener(content);
+		// ModRender.registerModelsLoadListener(content); // Disabled for 1.21.4
 	}
 }

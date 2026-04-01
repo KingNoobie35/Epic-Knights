@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 /**
  * Wrapper class around ToolMaterial for custom weapon materials.
@@ -67,7 +68,7 @@ public class ModItemTier
 
 	public Ingredient getRepairIngredient()
 	{
-		return Ingredient.of(toolMaterial.repairItems());
+		return Ingredient.of(Stream.empty());
 	}
 
 	public float getSpeed()

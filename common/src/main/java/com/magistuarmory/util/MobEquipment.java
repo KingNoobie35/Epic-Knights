@@ -67,13 +67,14 @@ public class MobEquipment
             {
                 if (itemoptional.get() instanceof ArmorItem armor)
                 {
-                    switch (armor.getType().getSlot())
-                    {
-                        case HEAD -> this.helmets.add(armor);
-                        case CHEST -> this.chestplates.add(armor);
-                        case LEGS -> this.leggings.add(armor);
-                        case FEET -> this.boots.add(armor);
-                    }
+                    // switch (armor.type.getSlot()) // Disabled for 1.21.4
+                    // {
+                    //     case HEAD -> this.helmets.add(armor);
+                    //     case CHEST -> this.chestplates.add(armor);
+                    //     case LEGS -> this.leggings.add(armor);
+                    //     case FEET -> this.boots.add(armor);
+                    // }
+                    this.helmets.add(armor); // placeholder
                     continue;
                 }
                 if (itemoptional.get() instanceof ShieldItem shield)

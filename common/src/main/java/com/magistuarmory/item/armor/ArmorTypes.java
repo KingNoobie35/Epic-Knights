@@ -5,6 +5,7 @@ import com.magistuarmory.config.ArmorConfig;
 import dev.architectury.registry.registries.DeferredRegister;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -18,7 +19,7 @@ public class ArmorTypes
 {
 	public static final ArmorConfig ARMOR_CONFIG = EpicKnights.CONFIG.armor;
 
-public static DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister.create(EpicKnights.ID, net.minecraft.core.registries.Registries.ARMOR_MATERIAL);
+public static DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister.create(EpicKnights.ID, ResourceKey.createRegistryKey(ResourceLocation.withDefaultNamespace("armor_material")));
 
 	public static final ArmorType MINICROWN;
 	public static final ArmorType CROWN;

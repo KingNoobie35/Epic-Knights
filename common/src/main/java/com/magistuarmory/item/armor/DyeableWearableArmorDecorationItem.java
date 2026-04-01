@@ -48,7 +48,7 @@ public class DyeableWearableArmorDecorationItem extends DyeableMedievalArmorItem
 	@Override
 	public @NotNull net.minecraft.world.item.equipment.ArmorType getType()
 	{
-		return this.type;
+		return this.mcArmorType;
 	}
 
 	@Override
@@ -56,15 +56,15 @@ public class DyeableWearableArmorDecorationItem extends DyeableMedievalArmorItem
 	{
 		return stack.getItem() != this &&
 				ArmorDecorationItem.getDecorationTags(stack).size() < 8 &&
-				stack.getItem() instanceof ArmorItem armor &&
-				this.getType() == armor.getType();
+				stack.getItem() instanceof ArmorItem armor; // &&
+				// this.getType() == armor.getType(); // Disabled for 1.21.4
 	}
 
 	@Override
 	public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag flag)
 	{
 		super.appendHoverText(stack, tooltipContext, tooltip, flag);
-		tooltip.add((Component.translatable(EpicKnights.ID + ".armor_decoration." + this.getType().getName() + ".description")).withStyle(Style.EMPTY.withColor(ChatFormatting.BLUE).withItalic(true)));
+		tooltip.add((Component.translatable(EpicKnights.ID + ".armor_decoration." + this.getType().name() + ".description")).withStyle(Style.EMPTY.withColor(ChatFormatting.BLUE).withItalic(true)));
 	}
 
 	@Override

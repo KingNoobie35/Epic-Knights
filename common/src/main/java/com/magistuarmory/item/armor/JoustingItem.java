@@ -22,13 +22,13 @@ public class JoustingItem extends DyeableMedievalArmorItem implements ISurcoat
 	@Override
 	public int getColor(ItemStack stack)
 	{
-		return this.type == net.minecraft.world.item.equipment.ArmorType.HELMET ? super.getColor(stack) : getDefaultColor();
+		return this.mcArmorType == net.minecraft.world.item.equipment.ArmorType.HELMET ? super.getColor(stack) : getDefaultColor();
 	}
 	
 	@Override
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int i, boolean selected)
 	{
-		if (entity instanceof LivingEntity livingentity && livingentity.getItemBySlot(this.type.getSlot()) == stack)
+		if (entity instanceof LivingEntity livingentity && livingentity.getItemBySlot(this.mcArmorType.getSlot()) == stack)
 			livingentity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 1, false, false, false));
 		
 		super.inventoryTick(stack, level, entity, i, selected);

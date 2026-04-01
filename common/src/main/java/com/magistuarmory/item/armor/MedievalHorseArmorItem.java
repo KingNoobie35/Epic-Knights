@@ -16,7 +16,6 @@ public class MedievalHorseArmorItem extends AnimalArmorItem
 		this.texture = texture;
 	}
 
-	@Override
 	public ResourceLocation getTexture() {
 		return texture;
 	}

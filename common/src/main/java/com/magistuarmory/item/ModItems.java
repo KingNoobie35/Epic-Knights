@@ -232,22 +232,24 @@ public class ModItems extends ModItemsProvider
 	public static final RegistrySupplier<Item> WOOLEN_FABRIC = INSTANCE.addIngredientItem("woolen_fabric", () -> new Item(new Properties()));
 	public static final RegistrySupplier<Item> SMALL_STEEL_PLATE = INSTANCE.addIngredientItem("small_steel_plate", () -> new Item(new Properties()));
 	public static final RegistrySupplier<Item> LAMELLAR_ROWS = INSTANCE.addIngredientItem("lamellar_rows", () -> new Item(new Properties()));
-	public static final @Nullable RegistrySupplier<Item> DARKENING_TEMPLATE = INSTANCE.addIngredientItem("darkening_template", () -> new SmithingTemplateItem(
-			Component.translatable(EpicKnights.ID + ".darkening_template.applies_to"),
-			Component.translatable(EpicKnights.ID + ".darkening_template.ingredients"),
-			Component.translatable(EpicKnights.ID + ".darkening_template.upgrade_description"),
-			Component.translatable(EpicKnights.ID + ".darkening_template.base_slot_description"),
-			Component.literal(""), //additions_slot_description
-			List.of(),
-			List.of()));
-	public static final @Nullable RegistrySupplier<Item> GILDING_TEMPLATE = INSTANCE.addIngredientItem("gilding_template", () -> new SmithingTemplateItem(
-			Component.translatable(EpicKnights.ID + ".gilding_template.applies_to"),
-			Component.translatable(EpicKnights.ID + ".gilding_template.ingredients"),
-			Component.translatable(EpicKnights.ID + ".gilding_template.upgrade_description"),
-			Component.translatable(EpicKnights.ID + ".gilding_template.base_slot_description"),
-			Component.literal(""), //additions_slot_description
-			List.of(),
-			List.of()));
+	// public static final @Nullable RegistrySupplier<Item> DARKENING_TEMPLATE = INSTANCE.addIngredientItem("darkening_template", () -> new SmithingTemplateItem(
+	// 		Component.translatable(EpicKnights.ID + ".darkening_template.applies_to"),
+	// 		Component.translatable(EpicKnights.ID + ".darkening_template.ingredients"),
+	// 		Component.translatable(EpicKnights.ID + ".darkening_template.upgrade_description"),
+	// 		Component.translatable(EpicKnights.ID + ".darkening_template.base_slot_description"),
+	// 		List.<ItemStack>of(),
+	// 		List.<ItemStack>of(),
+	// 		List.<ItemStack>of())));
+	public static final @Nullable RegistrySupplier<Item> DARKENING_TEMPLATE = null;
+	// public static final @Nullable RegistrySupplier<Item> GILDING_TEMPLATE = INSTANCE.addIngredientItem("gilding_template", () -> new SmithingTemplateItem(
+	// 		Component.translatable(EpicKnights.ID + ".gilding_template.applies_to"),
+	// 		Component.translatable(EpicKnights.ID + ".gilding_template.ingredients"),
+	// 		Component.translatable(EpicKnights.ID + ".gilding_template.upgrade_description"),
+	// 		Component.translatable(EpicKnights.ID + ".gilding_template.base_slot_description"),
+	// 		List.<ItemStack>of(),
+	// 		List.<ItemStack>of(),
+	// 		List.<ItemStack>of())));
+	public static final @Nullable RegistrySupplier<Item> GILDING_TEMPLATE = null;
 	
 	//Decorations
 	public static final RegistrySupplier<DyeableArmorDecorationItem> TORSE_AND_MANTLE_DECORATION = INSTANCE.addDyeableArmorDecorationItem("torse_and_mantle_decoration", () -> new DyeableArmorDecorationItem(ResourceLocation.fromNamespaceAndPath(EpicKnights.ID, "torse_and_mantle"), new Properties(), net.minecraft.world.item.equipment.ArmorType.HELMET));

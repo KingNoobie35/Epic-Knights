@@ -10,9 +10,9 @@ public class ModRecipes
 {
 	public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(EpicKnights.ID, Registries.RECIPE_SERIALIZER);
 	
-	public static final RegistrySupplier<RecipeSerializer<?>> HERALDRY_SERIALIZER = RECIPE_SERIALIZERS.register("heraldry_recipes", HeraldryRecipe::getSerializerInstance);
-	public static final RegistrySupplier<RecipeSerializer<?>> ARMOR_DECORATION_SERIALIZER = RECIPE_SERIALIZERS.register("armor_decoration_recipes", ArmorDecorationRecipe::getSerializerInstance);
-	public static final RegistrySupplier<RecipeSerializer<?>> DECORATION_REMOVE_SERIALIZER = RECIPE_SERIALIZERS.register("decoration_remove_recipes", DecorationRemoveRecipe::getSerializerInstance);
+	public static final RegistrySupplier<RecipeSerializer<?>> HERALDRY_SERIALIZER = RECIPE_SERIALIZERS.register("heraldry_recipes", () -> null);
+	public static final RegistrySupplier<RecipeSerializer<?>> ARMOR_DECORATION_SERIALIZER = RECIPE_SERIALIZERS.register("armor_decoration_recipes", () -> null);
+	public static final RegistrySupplier<RecipeSerializer<?>> DECORATION_REMOVE_SERIALIZER = RECIPE_SERIALIZERS.register("decoration_remove_recipes", () -> null);
 
 	public static void init()
 	{

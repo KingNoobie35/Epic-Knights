@@ -47,7 +47,7 @@ public class EpicKnights
         if (Platform.getEnv() == EnvType.CLIENT)
         {
             ClientEvents.init();
-            ModModels.INSTANCE.init(ModItems.INSTANCE);
+            // ModModels.INSTANCE.init(ModItems.INSTANCE); // Disabled for 1.21.4
         }
 
         ArmorTypes.init();

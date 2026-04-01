@@ -45,7 +45,7 @@ public class PaviseUpperCollisionBlock extends Block
 		return this.defaultBlockState();
 	}
 	
-	public @NotNull ItemStack getCloneItemStack(LevelReader reader, BlockPos blockpos, BlockState blockstate) 
+	public @NotNull ItemStack getCloneItemStack(LevelReader reader, BlockPos blockpos, BlockState blockstate, boolean useShapeInfo) 
 	{
 		if (reader.getBlockEntity(blockpos.below()) instanceof PaviseBlockEntity pavise)
 			return pavise.getStack();
