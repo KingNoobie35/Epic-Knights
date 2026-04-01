@@ -92,7 +92,7 @@ public class LanceItem extends MedievalWeaponItem
 		if (EpicKnights.GENERAL_CONFIG.disableLanceCollision)
 			return super.onAttackClickEntity(stack, player, entity);
 
-		if (player.isPassenger() && !this.isRaised(player) && !player.getCooldowns().isOnCooldown(this))
+		if (player.isPassenger() && !this.isRaised(player) && !player.getCooldowns().isOnCooldown(stack))
 			this.resetClickedTicks();
 		player.swing(InteractionHand.MAIN_HAND);
 
@@ -104,7 +104,7 @@ public class LanceItem extends MedievalWeaponItem
 		if (player == null || level == null)
 			return;
 
-		if (!this.isRaised(player) && !player.getCooldowns().isOnCooldown(this) && player.isPassenger())
+		if (!this.isRaised(player) && !player.getCooldowns().isOnCooldown(player.getMainHandItem()) && player.isPassenger())
 		{
 			float speed = this.getVelocityProjection(player);
 
@@ -163,7 +163,7 @@ public class LanceItem extends MedievalWeaponItem
 			for (ItemStack stack0 : player.getInventory().items)
 			{
 				this.setRaised(player, true);
-				player.getCooldowns().addCooldown(stack0.getItem(), (int) player.getCurrentItemAttackStrengthDelay());
+				player.getCooldowns().addCooldown(stack0, (int) player.getCurrentItemAttackStrengthDelay());
 			}
 
 			if (stack.getDamageValue() >= stack.getMaxDamage())
@@ -230,7 +230,7 @@ public class LanceItem extends MedievalWeaponItem
 					this.clickedticks--;
 			}
 
-			if (!this.isRaised(player) && player.getCooldowns().isOnCooldown(this))
+			if (!this.isRaised(player) && player.getCooldowns().isOnCooldown(player.getMainHandItem()))
 				this.setRaised(player, true);
 		}
 		super.inventoryTick(stack, level, entity, i, selected);
@@ -304,8 +304,9 @@ public class LanceItem extends MedievalWeaponItem
 		if (entity instanceof LivingEntity livingentity) {
 			for (ItemStack armorpiece : livingentity.getArmorSlots())
 			{
-				if (!armorpiece.isEmpty() && armorpiece.getItem() instanceof ArmorItem)
-					mass += (((ArmorItem) armorpiece.getItem()).getDefense() + ((ArmorItem) armorpiece.getItem()).getToughness()) / 20.0;
+				if (!armorpiece.isEmpty() && armorpiece.getItem() instanceof ArmorItem armor)
+					// mass += (armor.material.value().defense().get(armor.type.getSlot()) + armor.material.value().toughness()) / 20.0; // Disabled for 1.21.4
+					mass += 1.0; // placeholder
 			}
 		}
 
@@ -365,6 +366,6 @@ public class LanceItem extends MedievalWeaponItem
 	@Environment(EnvType.CLIENT)
 	public void registerModelProperty()
 	{
-		ItemPropertiesRegistry.register(this, ResourceLocation.fromNamespaceAndPath(EpicKnights.ID, "raised"), (stack, level, entity, i) -> this.isRaised(entity) ? 1 : 0);
+		// ItemPropertiesRegistry.register(this, ResourceLocation.fromNamespaceAndPath(EpicKnights.ID, "raised"), (stack, level, entity, i) -> this.isRaised(entity) ? 1 : 0); // Disabled for 1.21.4
 	}
 }

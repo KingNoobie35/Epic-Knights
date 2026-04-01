@@ -222,8 +222,8 @@ public abstract class ModItemsProvider
 	{
 		this.items.register();
 		LifecycleEvent.SETUP.register(this::onSetup);
-		if (Platform.getEnv() == EnvType.CLIENT)
-			LifecycleEvent.SETUP.register(() -> ModRender.setup(this));
+		// if (Platform.getEnv() == EnvType.CLIENT)
+		// 	LifecycleEvent.SETUP.register(() -> ModRender.setup(this)); // Disabled for 1.21.4
 	}
 }
 

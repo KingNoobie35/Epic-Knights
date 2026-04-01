@@ -97,7 +97,7 @@ public class PaviseBlock extends AbstractBannerBlock
 	}
 	
 	@Override
-	public @NotNull ItemStack getCloneItemStack(LevelReader reader, BlockPos blockpos, BlockState blockstate) 
+	public @NotNull ItemStack getCloneItemStack(LevelReader reader, BlockPos blockpos, BlockState blockstate, boolean useShapeInfo) 
 	{
 		if (reader.getBlockEntity(blockpos) instanceof PaviseBlockEntity pavise)
 			return pavise.getStack();

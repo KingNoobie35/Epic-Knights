@@ -42,7 +42,7 @@ public class WearableArmorDecorationItem extends MedievalArmorItem implements Ar
 	@Override
 	public @NotNull net.minecraft.world.item.equipment.ArmorType getType()
 	{
-		return this.type;
+		return this.mcArmorType;
 	}
 
 	@Override
@@ -50,8 +50,8 @@ public class WearableArmorDecorationItem extends MedievalArmorItem implements Ar
 	{
 		return stack.getItem() != this &&
 				ArmorDecorationItem.getDecorationTags(stack).size() < 8 &&
-				stack.getItem() instanceof ArmorItem armor &&
-				this.getType() == armor.getType();
+				stack.getItem() instanceof ArmorItem armor; // &&
+				// this.getType() == armor.getType(); // Disabled for 1.21.4
 	}
 
 	@Override

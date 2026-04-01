@@ -20,12 +20,14 @@ public class MedievalArmorItem extends ArmorItem implements ISurcoat
 	@Nullable
 	protected HumanoidModel model = null;
 	
-	private final com.magistuarmory.item.armor.ArmorType armortype;
+	protected final com.magistuarmory.item.armor.ArmorType armortype;
+	public final net.minecraft.world.item.equipment.ArmorType mcArmorType;
 
 	public MedievalArmorItem(com.magistuarmory.item.armor.ArmorType armortype, net.minecraft.world.item.equipment.ArmorType type, Properties properties)
 	{
 		super(armortype.getMaterial().value(), type, properties.durability(armortype.getDurabilityForType(type)).stacksTo(1));
 		this.armortype = armortype;
+		this.mcArmorType = type;
 	}
 
 	public com.magistuarmory.item.armor.ArmorType getArmorType()
@@ -50,9 +52,9 @@ public class MedievalArmorItem extends ArmorItem implements ISurcoat
 	}
 
 	@Environment(EnvType.CLIENT)
-	public HumanoidModel<? extends LivingEntity> getArmorModel(EquipmentSlot slot, HumanoidModel<? extends LivingEntity> _default)
+	public HumanoidModel getArmorModel(EquipmentSlot slot, HumanoidModel _default)
 	{
-		if (slot == this.type.getSlot() && this.model != null) {
+		if (slot == this.mcArmorType.getSlot() && this.model != null) {
 			return this.model;
 		}
 		return _default;

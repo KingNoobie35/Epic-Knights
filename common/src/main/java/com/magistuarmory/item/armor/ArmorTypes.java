@@ -5,6 +5,7 @@ import com.magistuarmory.config.ArmorConfig;
 import dev.architectury.registry.registries.DeferredRegister;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -18,7 +19,7 @@ public class ArmorTypes
 {
 	public static final ArmorConfig ARMOR_CONFIG = EpicKnights.CONFIG.armor;
 
-public static DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister.create(EpicKnights.ID, Registries.ARMOR_MATERIAL);
+public static DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister.create(EpicKnights.ID, ResourceKey.createRegistryKey(ResourceLocation.withDefaultNamespace("armor_material")));
 
 	public static final ArmorType MINICROWN;
 	public static final ArmorType CROWN;
@@ -79,7 +80,7 @@ public static DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister
 		GREATHELM = create(ARMOR_MATERIALS, ResourceLocation.fromNamespaceAndPath("magistuarmory", "greathelm"), ResourceLocation.parse("magistuarmory:crusader"), ARMOR_CONFIG.get("crusader"), SoundEvents.ARMOR_EQUIP_CHAIN, true, "c:ingots/steel");
 		CRUSADER = create(ARMOR_MATERIALS, ResourceLocation.fromNamespaceAndPath("magistuarmory", "crusader"), ResourceLocation.withDefaultNamespace("default"), ARMOR_CONFIG.get("crusader"), SoundEvents.ARMOR_EQUIP_CHAIN, true, "c:ingots/steel");
 		BRIGANDINE = create(ARMOR_MATERIALS, ResourceLocation.fromNamespaceAndPath("magistuarmory", "brigandine"), ResourceLocation.withDefaultNamespace("default"), ARMOR_CONFIG.get("brigandine"), SoundEvents.ARMOR_EQUIP_LEATHER, true, "c:ingots/steel");
-		GAMBESON = create(ARMOR_MATERIALS, ResourceLocation.fromNamespaceAndPath("magistuarmory", "gambeson"), ResourceLocation.withDefaultNamespace("default"), ARMOR_CONFIG.get("gambeson"), SoundEvents.ARMOR_EQUIP_LEATHER, true, () -> Ingredient.EMPTY);
+		GAMBESON = create(ARMOR_MATERIALS, ResourceLocation.fromNamespaceAndPath("magistuarmory", "gambeson"), ResourceLocation.withDefaultNamespace("default"), ARMOR_CONFIG.get("gambeson"), SoundEvents.ARMOR_EQUIP_LEATHER, true, () -> Ingredient.of());
 		CEREMONIAL_ARMET = create(ARMOR_MATERIALS, ResourceLocation.fromNamespaceAndPath("magistuarmory", "ceremonialarmet"), ResourceLocation.parse("magistuarmory:armet"), ARMOR_CONFIG.get("ceremonialArmet"), SoundEvents.ARMOR_EQUIP_IRON, false, "c:ingots/steel");
 		CEREMONIAL = create(ARMOR_MATERIALS, ResourceLocation.fromNamespaceAndPath("magistuarmory", "ceremonial"), ResourceLocation.withDefaultNamespace("default"), ARMOR_CONFIG.get("ceremonial"), SoundEvents.ARMOR_EQUIP_IRON, false, "c:ingots/steel");
 		SHISHAK = create(ARMOR_MATERIALS, ResourceLocation.fromNamespaceAndPath("magistuarmory", "shishak"), ResourceLocation.parse("magistuarmory:conic_helmet"), ARMOR_CONFIG.get("shishak"), SoundEvents.ARMOR_EQUIP_IRON, false, "c:ingots/steel");

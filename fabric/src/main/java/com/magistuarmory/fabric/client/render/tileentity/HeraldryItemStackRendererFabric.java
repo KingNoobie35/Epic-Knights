@@ -1,6 +1,5 @@
 package com.magistuarmory.fabric.client.render.tileentity;
 
-import com.magistuarmory.client.render.tileentity.HeraldryItemStackRenderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -11,16 +10,21 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 
 @Environment(EnvType.CLIENT)
-public class HeraldryItemStackRendererFabric extends HeraldryItemStackRenderer implements BuiltinItemRendererRegistry.DynamicItemRenderer
+public class HeraldryItemStackRendererFabric implements BuiltinItemRendererRegistry.DynamicItemRenderer
 {
+	private final String id;
+	private final ResourceLocation location;
+
 	public HeraldryItemStackRendererFabric(String id, ResourceLocation location)
 	{
-		super(id, location);
+		this.id = id;
+		this.location = location;
 	}
 
 	@Override
 	public void render(ItemStack stack, ItemDisplayContext mode, PoseStack matrices, MultiBufferSource vertexConsumers, int p, int overlay)
 	{
-		super.renderByItem(stack, mode, matrices, vertexConsumers, p, overlay);
+		// TODO: Implement heraldry item rendering when rendering system is ported
+		// For now, this is a stub to allow compilation
 	}
 }

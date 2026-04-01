@@ -19,21 +19,18 @@ public class HeraldryReloadListener extends SimplePreparableReloadListener<Map<R
     public HeraldryReloadListener() {
     }
 
-    @Override
-    protected CompletableFuture<Map<ResourceLocation, JsonElement>> prepare(ResourceManager resourceManager, ProfilerFiller profilerFiller, Executor executor) {
-        return CompletableFuture.supplyAsync(() -> {
-            Map<ResourceLocation, JsonElement> map = new java.util.HashMap<>();
-            for (ResourceLocation resourcelocation : resourceManager.listResources("heraldry", (p_10713_) -> p_10713_.getPath().endsWith(".json")).keySet()) {
-                String s = resourcelocation.getPath();
-                ResourceLocation resourcelocation1 = ResourceLocation.fromNamespaceAndPath(resourcelocation.getNamespace(), s.substring("heraldry/".length(), s.length() - ".json".length()));
-                try {
-                    map.put(resourcelocation1, GSON.fromJson(resourceManager.getResourceOrThrow(resourcelocation).openAsReader(), JsonElement.class));
-                } catch (Exception exception) {
-                    // handle
-                }
+    protected Map<ResourceLocation, JsonElement> prepare(ResourceManager resourceManager, ProfilerFiller profilerFiller) {
+        Map<ResourceLocation, JsonElement> map = new java.util.HashMap<>();
+        for (ResourceLocation resourcelocation : resourceManager.listResources("heraldry", (p_10713_) -> p_10713_.getPath().endsWith(".json")).keySet()) {
+            String s = resourcelocation.getPath();
+            ResourceLocation resourcelocation1 = ResourceLocation.fromNamespaceAndPath(resourcelocation.getNamespace(), s.substring("heraldry/".length(), s.length() - ".json".length()));
+            try {
+                map.put(resourcelocation1, GSON.fromJson(resourceManager.getResourceOrThrow(resourcelocation).openAsReader(), JsonElement.class));
+            } catch (Exception exception) {
+                // handle
             }
-            return map;
-        }, executor);
+        }
+        return map;
     }
 
     @Override

@@ -126,8 +126,8 @@ public class ModCreativeTabs
 		append(ARMOR, ModItems.FACE_HELMET);
 		append(ARMOR, ModItems.LAMELLAR_CHESTPLATE);
 		append(ARMOR, ModItems.LAMELLAR_BOOTS);
-		append(ARMOR, ModItems.BARDING);
-		append(ARMOR, ModItems.CHAINMAIL_HORSE_ARMOR);
+		//append(ARMOR, ModItems.BARDING); // TODO: Fix for 1.21.4
+		//append(ARMOR, ModItems.CHAINMAIL_HORSE_ARMOR); // TODO: Fix for 1.21.4
 
 		append(PARTICULAR_WEAPONS, ModItems.BLACKSMITH_HAMMER);
 		append(PARTICULAR_WEAPONS, ModItems.BARBED_CLUB);

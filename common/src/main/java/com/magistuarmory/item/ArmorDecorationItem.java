@@ -88,8 +88,8 @@ public class ArmorDecorationItem extends Item implements ArmorDecoration
 	public boolean isApplicableForDecoration(ItemStack stack)
 	{
 		return getDecorationTags(stack).size() < 8 &&
-				stack.getItem() instanceof ArmorItem armor &&
-				this.getType() == armor.getType();
+				stack.getItem() instanceof ArmorItem armor; // &&
+				// this.getType() == armor.getType(); // Disabled for 1.21.4
 	}
 
 	public static ListTag getDecorationTags(ItemStack stack)
@@ -109,6 +109,6 @@ public class ArmorDecorationItem extends Item implements ArmorDecoration
 	@Environment(EnvType.CLIENT)
 	public ModelLayerLocation createModelLocation()
 	{
-		return ModModels.createDecorationLocation(this.location);
+		return null; // ModModels.createDecorationLocation(this.location); // Disabled for 1.21.4
 	}
 }

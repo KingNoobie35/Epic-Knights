@@ -35,7 +35,7 @@ public class ThrowingWeaponItem extends TridentItem
     }
 
     @Override
-    public void releaseUsing(ItemStack stack, Level level, LivingEntity shooter, int i) {
+    public boolean releaseUsing(ItemStack stack, Level level, LivingEntity shooter, int i) {
         int duration = this.getUseDuration(stack, shooter) - i;
         if (duration >= this.shootThresholdTime && !isTooDamagedToUse(stack)) {
             if (!level.isClientSide) {
@@ -57,7 +57,9 @@ public class ThrowingWeaponItem extends TridentItem
             if (shooter instanceof Player player) {
                 player.awardStat(Stats.ITEM_USED.get(this));
             }
+            return true;
         }
+        return false;
     }
 
     private static boolean isTooDamagedToUse(ItemStack stack) {

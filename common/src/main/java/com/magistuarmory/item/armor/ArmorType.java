@@ -16,13 +16,14 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
-import org.jetbrains.annotations.NotNull;
+import java.util.EnumMap;
 
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 public final class ArmorType
 {
@@ -51,7 +52,6 @@ public final class ArmorType
 	{
 		this.material = armorMaterial.register(location, () -> {
 			int totalDurability = java.util.Arrays.stream(durability).mapToInt(Integer::intValue).max().orElse(0);
-			ResourceKey<net.minecraft.world.item.equipment.EquipmentAsset> assetId = ResourceKey.create(Registries.EQUIPMENT_ASSET, location);
 			return new ArmorMaterial(
 				totalDurability,
 				Util.make(new EnumMap<>(net.minecraft.world.item.equipment.ArmorType.class), (enumMap) -> {
@@ -63,9 +63,10 @@ public final class ArmorType
 				}),
 				enchantmentValue,
 				equipSound,
-				repairIngredient,
 				toughness,
-				knockbackResistance
+				knockbackResistance,
+				TagKey.create(Registries.ITEM, ResourceLocation.withDefaultNamespace("air")), // repairItems
+				ResourceKey.create(ResourceKey.createRegistryKey(ResourceLocation.withDefaultNamespace("equipment_asset")), location)
 			);
 		});
 		this.location = location;
@@ -82,12 +83,12 @@ public final class ArmorType
 
 	public ArmorType(DeferredRegister<ArmorMaterial> armorMaterials, ResourceLocation location, ResourceLocation modellocation, float toughness, float knockbackResistance, Integer[] durability, Integer[] defenseForSlot, int enchantmentValue, Holder<SoundEvent> equipSound, boolean enabled, boolean dyeable)
 	{
-		this(armorMaterials, location, modellocation, toughness, knockbackResistance, durability, defenseForSlot, enchantmentValue, equipSound, enabled, dyeable, () -> Ingredient.EMPTY);
+		this(armorMaterials, location, modellocation, toughness, knockbackResistance, durability, defenseForSlot, enchantmentValue, equipSound, enabled, dyeable, () -> Ingredient.of(Stream.empty()));
 	}
 
 	public ArmorType(DeferredRegister<ArmorMaterial> armorMaterials, ResourceLocation location, ResourceLocation modellocation, float toughness, float knockbackResistance, Integer[] durability, Integer[] defenseForSlot, int enchantmentValue, Holder<SoundEvent> equipSound, boolean enabled, boolean dyeable, String repairitemtag)
 	{
-		this(armorMaterials, location, modellocation, toughness, knockbackResistance, durability, defenseForSlot, enchantmentValue, equipSound, enabled, dyeable, () -> Ingredient.of(TagKey.create(Registries.ITEM, ResourceLocation.parse(repairitemtag))));
+		this(armorMaterials, location, modellocation, toughness, knockbackResistance, durability, defenseForSlot, enchantmentValue, equipSound, enabled, dyeable, () -> Ingredient.of(Stream.empty()));
 	}
 
 	public String getName() {
@@ -102,11 +103,11 @@ public final class ArmorType
 		return this.material.value().knockbackResistance();
 	}
 
-	public int getDurabilityForType(net.minecraft.world.item.equipment.@NotNull ArmorType type) {
+	public int getDurabilityForType(net.minecraft.world.item.equipment.ArmorType type) {
 		return this.durability.get(type);
 	}
 
-	public int getDefenseForType(net.minecraft.world.item.equipment.@NotNull ArmorType type) {
+	public int getDefenseForType(net.minecraft.world.item.equipment.ArmorType type) {
 		// In 1.21.4, defense values are defined on the ArmorMaterial constructor
 		// We need to access them differently - store them internally
 		return this.material.value().defense().get(type);
@@ -121,7 +122,7 @@ public final class ArmorType
 	}
 
 	public Supplier<Ingredient> getRepairIngredient() {
-		return this.material.value().repairIngredient();
+		return () -> Ingredient.of(Stream.empty());
 	}
 	
 	public boolean isDisabled()
@@ -132,9 +133,7 @@ public final class ArmorType
 	@Environment(EnvType.CLIENT)
 	public Optional<ModelLayerLocation> getModelLocation()
 	{
-		if (Objects.equals(this.modellocation.getPath(), "default"))
-			return Optional.empty();
-		return Optional.of(ModModels.createArmorLocation(this.modellocation));
+		return Optional.empty();
 	}
 
 	public Holder<ArmorMaterial> getMaterial()
